@@ -4,8 +4,11 @@
 /* @var $form CActiveForm  */
 
 $this->pageTitle=Yii::app()->name . ' - Login';
-$this->breadcrumbs=array(
-	'Login',
+$this->widget(
+'booster.widgets.TbBreadcrumbs',
+array(
+'links' => array('Inicio Sesión'),
+)
 );
 ?>
 

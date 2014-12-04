@@ -3,8 +3,11 @@
 /* @var $error array */
 
 $this->pageTitle=Yii::app()->name . ' - Error';
-$this->breadcrumbs=array(
-	'Error',
+$this->widget(
+'booster.widgets.TbBreadcrumbs',
+array(
+'links' => array('Error'),
+)
 );
 ?>
 
