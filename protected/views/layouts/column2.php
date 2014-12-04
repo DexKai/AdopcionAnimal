@@ -1,22 +1,36 @@
 <?php /* @var $this Controller */ ?>
 <?php $this->beginContent('//layouts/main'); ?>
-<div class="span-19">
+<div class="span-21">
 	<div id="content">
 		<?php echo $content; ?>
 	</div><!-- content -->
 </div>
-<div class="span-5 last">
+<div class="span-6 last">
 	<div id="sidebar">
 	<?php
-		$this->beginWidget('zii.widgets.CPortlet', array(
-			'title'=>'Operations',
-		));
-		$this->widget('zii.widgets.CMenu', array(
-			'items'=>$this->menu,
-			'htmlOptions'=>array('class'=>'operations'),
-		));
-		$this->endWidget();
+
+		if($this->menu){
+			$this->widget(
+					'bootstrap.widgets.TbNav',
+					array(
+							'type' => TbHtml::NAV_TYPE_PILLS,
+							'stacked' => true,
+							'items' => array(array('label'=>'Operaciones:','icon'=>'wrench', 'url'=>' ', 'active'=>'true'),),
+							'htmlOptions'=>array('active'=>'true'),
+					)
+			);
+			$this->widget(
+					'bootstrap.widgets.TbNav',
+					array(
+							'type' => TbHtml::NAV_TYPE_PILLS,
+							'stacked' => true,
+							'items' => $this->menu,
+							'htmlOptions'=>array('class'=>'operations'),
+					)
+			);
+		}
 	?>
+
 	</div><!-- sidebar -->
 </div>
 <?php $this->endContent(); ?>

@@ -31,7 +31,7 @@
 				<table>
 					<tr>
 						<td>
-							<img  src='images/logo.png' align=left hspace=25>
+							<?php echo CHtml::image(Yii::app()->request->baseUrl."/images/logo.png"); ?>
 						</td>
 						<td>
 							<?php  //<h2>Sistema Adopción Animal</h2> ?>
@@ -84,9 +84,15 @@ array(
 				array('label'=>'Especie', 'url'=>array('/especie/index'), 'visible'=>Yii::app()->user->checkAccess('admin')),
 				array('label'=>'Raza', 'url'=>array('/raza/index'), 'visible'=>Yii::app()->user->checkAccess('admin')),
 				array('label'=>'Persona', 'url'=>array('/persona/index'), 'visible'=>Yii::app()->user->checkAccess('admin')),
-
-						array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-						array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				array('label'=>'Administrar Usuarios'
+					, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
+					, 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Login'
+					, 'url'=>Yii::app()->user->ui->loginUrl
+					, 'visible'=>Yii::app()->user->isGuest),
+				array('label'=>'Logout ('.Yii::app()->user->name.')'
+					, 'url'=>Yii::app()->user->ui->logoutUrl
+					, 'visible'=>!Yii::app()->user->isGuest),
 			),
 		),
 	),

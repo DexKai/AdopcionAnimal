@@ -4,7 +4,6 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 
-
 <?php $rol = Yii::app()->db->createCommand()
     ->select('itemname')
     ->from('cruge_authassignment')
