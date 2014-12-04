@@ -77,14 +77,13 @@ array(
 'class' => 'booster.widgets.TbMenu',
 'type' => 'navbar',
 		'items' => array(
-				array('label'=>'Inicio', 'url'=>array('/site/index')),
 				array('label'=>'Acerca', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Contacto', 'url'=>array('/site/contact')),
-				array('label'=>'Noticia', 'url'=>array('/noticia/index'), 'visible'=>Yii::app()->user->checkAccess('Administrador')),
-				array('label'=>'Animales', 'url'=>array('/animal/index'), 'visible'=>Yii::app()->user->checkAccess('Administrador')),
-				array('label'=>'Especie', 'url'=>array('/especie/index'), 'visible'=>Yii::app()->user->checkAccess('Administrador')),
-				array('label'=>'Raza', 'url'=>array('/raza/index'), 'visible'=>Yii::app()->user->checkAccess('Administrador')),
-				array('label'=>'Persona', 'url'=>array('/persona/index'), 'visible'=>Yii::app()->user->checkAccess('Administrador')),
+				array('label'=>'Noticia', 'url'=>array('/noticia/index'), 'visible'=>Yii::app()->user->checkAccess('admin')),
+				array('label'=>'Animales', 'url'=>array('/animal/index'), 'visible'=>Yii::app()->user->checkAccess('admin')),
+				array('label'=>'Especie', 'url'=>array('/especie/index'), 'visible'=>Yii::app()->user->checkAccess('admin')),
+				array('label'=>'Raza', 'url'=>array('/raza/index'), 'visible'=>Yii::app()->user->checkAccess('admin')),
+				array('label'=>'Persona', 'url'=>array('/persona/index'), 'visible'=>Yii::app()->user->checkAccess('admin')),
 
 						array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 						array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
