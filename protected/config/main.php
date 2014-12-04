@@ -7,31 +7,47 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'SAA',
+	'language'=>'es',
+    'charset'=>'utf-8',
 
 	// preloading 'log' component
-	'preload'=>array('log'),
+	'preload'=>array('log','booster'),
 
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'ext.AweCrud.components.*',
 	),
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
-		/*
+
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-			'password'=>'Enter Your Password Here',
+			'password'=>'admin',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
+			'generatorPaths' => array('booster.gii',//YIIBOOSTER:REDIRECCIONAS AL GII GENERATOR AL YIIBOOSTER
+			'ext.AweCrud.generators', // AweCrud generators
+			),
 		),
-		*/
 	),
 
 	// application components
 	'components'=>array(
+		'messages' => array (
+        	'extensionPaths' => array(
+            	'AweCrud' => 'ext.AweCrud.messages', // AweCrud messages directory.
+        	),
+    	),
+		'booster' => array(
+                    'class' => 'ext.booster.components.Booster',
+                    //'TbHtml'=>true,
+                    'responsiveCss' => true,
+                    //'fontAwesomeCss' => TRUE,//ESTOY USANDO EL FRAMEWORK DE IMAGENES DE FONTAWESOME, SI QUIERES LO COMENTAS ESTO
+        ),
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
@@ -40,6 +56,8 @@ return array(
 		/*
 		'urlManager'=>array(
 			'urlFormat'=>'path',
+			'showScriptName'=>false,
+			'urlSuffix'=>'.html',
 			'rules'=>array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
@@ -51,15 +69,15 @@ return array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),
 		// uncomment the following to use a MySQL database
-		/*
+		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=testdrive',
+			'connectionString' => 'mysql:host=localhost;dbname=adopcion4',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',
 			'charset' => 'utf8',
 		),
-		*/
+		
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
