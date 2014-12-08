@@ -56,6 +56,7 @@ return false;
 		'vacunas',
 		'observaciones',
 		'fecha_ingreso',
+		'adoptado',
 		'image',
 		*/
 array(

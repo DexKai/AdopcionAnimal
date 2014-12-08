@@ -83,6 +83,8 @@ array(
 				array('label'=>'Animales', 'url'=>array('/animal/index'), 'visible'=>Yii::app()->user->checkAccess('admin')),
 				array('label'=>'Especie', 'url'=>array('/especie/index'), 'visible'=>Yii::app()->user->checkAccess('admin')),
 				array('label'=>'Raza', 'url'=>array('/raza/index'), 'visible'=>Yii::app()->user->checkAccess('admin')),
+				array('label'=>'Colores', 'url'=>array('/colores/index'), 'visible'=>Yii::app()->user->checkAccess('admin')),
+				array('label'=>'Adopción', 'url'=>array('/adopcion/index'), 'visible'=>Yii::app()->user->checkAccess('admin')),
 				array('label'=>'Persona', 'url'=>array('/persona/index'), 'visible'=>Yii::app()->user->checkAccess('admin')),
 				array('label'=>'Administrar Usuarios'
 					, 'url'=>Yii::app()->user->ui->userManagementAdminUrl

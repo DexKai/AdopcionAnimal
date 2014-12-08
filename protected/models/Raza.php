@@ -6,11 +6,9 @@
  * The followings are the available columns in table 'raza':
  * @property integer $id_raza
  * @property integer $id_especie
- * @property integer $id_color
  * @property string $nombre_raza
  *
  * The followings are the available model relations:
- * @property Colores $idColor
  * @property Especie $idEspecie
  */
 class Raza extends CActiveRecord
@@ -32,11 +30,11 @@ class Raza extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('id_especie, nombre_raza', 'required'),
-			array('id_especie, id_color', 'numerical', 'integerOnly'=>true),
+			array('id_especie', 'numerical', 'integerOnly'=>true),
 			array('nombre_raza', 'length', 'max'=>1024),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_raza, id_especie, id_color, nombre_raza', 'safe', 'on'=>'search'),
+			array('id_raza, id_especie, nombre_raza', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -48,7 +46,6 @@ class Raza extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'idColor' => array(self::BELONGS_TO, 'Colores', 'id_color'),
 			'idEspecie' => array(self::BELONGS_TO, 'Especie', 'id_especie'),
 		);
 	}
@@ -61,7 +58,6 @@ class Raza extends CActiveRecord
 		return array(
 			'id_raza' => 'Código Raza',
 			'id_especie' => 'Especie',
-			'id_color' => 'Color',
 			'nombre_raza' => 'Raza',
 		);
 	}
@@ -86,7 +82,6 @@ class Raza extends CActiveRecord
 
 		$criteria->compare('id_raza',$this->id_raza);
 		$criteria->compare('id_especie',$this->id_especie);
-		$criteria->compare('id_color',$this->id_color);
 		$criteria->compare('nombre_raza',$this->nombre_raza,true);
 
 		return new CActiveDataProvider($this, array(

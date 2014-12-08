@@ -11,9 +11,9 @@
  * @property string $apellido_p
  * @property string $apellido_m
  * @property string $genero
- * @property string $fecha_nacimiento
  * @property string $direccion
  * @property integer $telefono
+ * @property string $fecha_nacimiento
  *
  * The followings are the available model relations:
  * @property Adopcion[] $adopcions
@@ -39,7 +39,7 @@ class Persona extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('RUT, nombre, apellido_p, apellido_m, genero, fecha_nacimiento, direccion, telefono', 'required'),
+			array('RUT, id_comuna, nombre, apellido_p, apellido_m, genero, direccion, telefono, fecha_nacimiento', 'required'),
 			array('iduser, id_comuna, telefono', 'numerical', 'integerOnly'=>true),
 			array('RUT', 'length', 'max'=>12),
 			array('nombre, apellido_p, apellido_m', 'length', 'max'=>100),
@@ -47,7 +47,7 @@ class Persona extends CActiveRecord
 			array('direccion', 'length', 'max'=>1024),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('RUT, iduser, id_comuna, nombre, apellido_p, apellido_m, genero, fecha_nacimiento, direccion, telefono', 'safe', 'on'=>'search'),
+			array('RUT, iduser, id_comuna, nombre, apellido_p, apellido_m, genero, direccion, telefono, fecha_nacimiento', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -79,9 +79,9 @@ class Persona extends CActiveRecord
 			'apellido_p' => 'Apellido P',
 			'apellido_m' => 'Apellido M',
 			'genero' => 'Genero',
-			'fecha_nacimiento' => 'Fecha Nacimiento',
 			'direccion' => 'Direccion',
 			'telefono' => 'Telefono',
+			'fecha_nacimiento' => 'Fecha Nacimiento',
 		);
 	}
 
@@ -110,9 +110,9 @@ class Persona extends CActiveRecord
 		$criteria->compare('apellido_p',$this->apellido_p,true);
 		$criteria->compare('apellido_m',$this->apellido_m,true);
 		$criteria->compare('genero',$this->genero,true);
-		$criteria->compare('fecha_nacimiento',$this->fecha_nacimiento,true);
 		$criteria->compare('direccion',$this->direccion,true);
 		$criteria->compare('telefono',$this->telefono);
+		$criteria->compare('fecha_nacimiento',$this->fecha_nacimiento,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

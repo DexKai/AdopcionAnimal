@@ -11,7 +11,7 @@
 
 		<?php echo $form->textAreaGroup($model,'cuerpo', array('widgetOptions'=>array('htmlOptions'=>array('rows'=>6, 'cols'=>50, 'class'=>'span8')))); ?>
 
-		<?php echo $form->textFieldGroup($model,'image',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>128)))); ?>
+		<?php //echo $form->textFieldGroup($model,'image',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>128)))); ?>
 
 	<div class="form-actions">
 		<?php $this->widget('booster.widgets.TbButton', array(

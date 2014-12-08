@@ -1,24 +1,26 @@
 <?php
 
 /**
- * This is the model class for table "noticia".
+ * This is the model class for table "adopcion".
  *
- * The followings are the available columns in table 'noticia':
- * @property integer $id_noticia
- * @property string $titulo
- * @property string $fecha_publicacion
- * @property string $cuerpo
- * @property string $image
+ * The followings are the available columns in table 'adopcion':
+ * @property integer $id_adopcion
+ * @property string $RUT
+ * @property integer $id_animal
+ * @property string $fecha_adopcion
+ *
+ * The followings are the available model relations:
+ * @property Persona $rUT
+ * @property Animal $idAnimal
  */
-class Noticia extends CActiveRecord
+class Adopcion extends CActiveRecord
 {
-	public $picture;
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'noticia';
+		return 'adopcion';
 	}
 
 	/**
@@ -29,13 +31,12 @@ class Noticia extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('titulo, fecha_publicacion, cuerpo, image', 'required'),
-			array('titulo', 'length', 'max'=>100),
-			array('image', 'length', 'max'=>128),
+			array('RUT, fecha_adopcion', 'required'),
+			array('id_animal', 'numerical', 'integerOnly'=>true),
+			array('RUT', 'length', 'max'=>12),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_noticia, titulo, fecha_publicacion, cuerpo', 'safe', 'on'=>'search'),
-			array('image', 'file','types'=>'jpg, gif, png', 'allowEmpty'=>true, 'on'=>'update'),
+			array('id_adopcion, RUT, id_animal, fecha_adopcion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -47,6 +48,8 @@ class Noticia extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'rUT' => array(self::BELONGS_TO, 'Persona', 'RUT'),
+			'idAnimal' => array(self::BELONGS_TO, 'Animal', 'id_animal'),
 		);
 	}
 
@@ -56,11 +59,10 @@ class Noticia extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_noticia' => 'Identificador Noticia',
-			'titulo' => 'Título',
-			'fecha_publicacion' => 'Fecha Publicación',
-			'cuerpo' => 'Cuerpo',
-			'image' => 'Foto',
+			'id_adopcion' => 'Id Adopcion',
+			'RUT' => 'Rut',
+			'id_animal' => 'Id Animal',
+			'fecha_adopcion' => 'Fecha Adopcion',
 		);
 	}
 
@@ -82,11 +84,10 @@ class Noticia extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id_noticia',$this->id_noticia);
-		$criteria->compare('titulo',$this->titulo,true);
-		$criteria->compare('fecha_publicacion',$this->fecha_publicacion,true);
-		$criteria->compare('cuerpo',$this->cuerpo,true);
-		$criteria->compare('image',$this->image,true);
+		$criteria->compare('id_adopcion',$this->id_adopcion);
+		$criteria->compare('RUT',$this->RUT,true);
+		$criteria->compare('id_animal',$this->id_animal);
+		$criteria->compare('fecha_adopcion',$this->fecha_adopcion,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -97,7 +98,7 @@ class Noticia extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Noticia the static model class
+	 * @return Adopcion the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

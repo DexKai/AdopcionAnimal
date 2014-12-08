@@ -34,7 +34,7 @@
 
 <?php if($model->isNewRecord!='1'){ 
 
-     echo CHtml::image(Yii::app()->request->baseUrl.'/images/Noticia/'.$model->image,"image",array("width"=>200));   // Image shown here if page is update page
+     echo CHtml::image(Yii::app()->request->baseUrl.'/images/Noticia/'.$model->image,"image",array("height"=>300, "width"=>400));   // Image shown here if page is update page
 }
 ?>	
 

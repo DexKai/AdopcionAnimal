@@ -7,8 +7,6 @@
 
 		<?php echo $form->textFieldGroup($model,'id_especie',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); ?>
 
-		<?php echo $form->textFieldGroup($model,'id_color',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); ?>
-
 		<?php echo $form->textFieldGroup($model,'nombre_raza',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>1024)))); ?>
 
 	<div class="form-actions">

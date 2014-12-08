@@ -18,14 +18,14 @@ array('label'=>'Manage Noticia','url'=>array('admin')),
 <?php $this->widget('booster.widgets.TbDetailView',array(
 'data'=>$model,
 'attributes'=>array(
-		'id_noticia',
+		//'id_noticia',
 		'titulo',
 		'fecha_publicacion',
 		'cuerpo',
 		array(
  			'label'=>'Foto',
  			'type'=>'raw',
- 			'value'=> CHtml::image(Yii::app()->baseUrl.'/images/Noticia/' . $model->image),
+ 			'value'=> CHtml::image(Yii::app()->baseUrl.'/images/Noticia/' . $model->image,'imagen',array("height"=>300, "width"=>400)),
 		),
-	),
+),
 )); ?>

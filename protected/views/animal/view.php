@@ -30,6 +30,7 @@ array('label'=>'Manage Animal','url'=>array('admin')),
 		'vacunas',
 		'observaciones',
 		'fecha_ingreso',
+		'adoptado',
 		'image',
 ),
 )); ?>

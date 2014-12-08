@@ -7,6 +7,8 @@
 
 <?php echo $form->errorSummary($model); ?>
 
+	<?php echo $form->errorSummary($model); ?>
+
 	<?php echo $form->dropDownListGroup($model,
 	 'id_especie',
 	 array(
@@ -16,19 +18,6 @@
 	   			'widgetOptions' => array(
 	   				'data' => Especie::getEspecie(),
 					'htmlOptions' => array('empty' => 'Seleccione Especie'),
-				)
-			)
-    ); ?>
-
-		<?php echo $form->dropDownListGroup($model,
-		 'id_color',
-		 array(
-				'wrapperHtmlOptions' => array(
-					'class' => 'col-sm-5',
-				),
-	   			'widgetOptions' => array(
-	   				'data' => Colores::getColor(),
-					'htmlOptions' => array('empty' => 'Seleccione Color'),
 				)
 			)
     ); ?>

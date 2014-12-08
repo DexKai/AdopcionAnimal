@@ -1,24 +1,23 @@
 <?php
 
 /**
- * This is the model class for table "noticia".
+ * This is the model class for table "colores".
  *
- * The followings are the available columns in table 'noticia':
- * @property integer $id_noticia
- * @property string $titulo
- * @property string $fecha_publicacion
- * @property string $cuerpo
- * @property string $image
+ * The followings are the available columns in table 'colores':
+ * @property integer $id_color
+ * @property string $nombre_color
+ *
+ * The followings are the available model relations:
+ * @property Animal[] $animals
  */
-class Noticia extends CActiveRecord
+class Colores extends CActiveRecord
 {
-	public $picture;
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'noticia';
+		return 'colores';
 	}
 
 	/**
@@ -29,13 +28,10 @@ class Noticia extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('titulo, fecha_publicacion, cuerpo, image', 'required'),
-			array('titulo', 'length', 'max'=>100),
-			array('image', 'length', 'max'=>128),
+			array('nombre_color', 'length', 'max'=>1024),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_noticia, titulo, fecha_publicacion, cuerpo', 'safe', 'on'=>'search'),
-			array('image', 'file','types'=>'jpg, gif, png', 'allowEmpty'=>true, 'on'=>'update'),
+			array('id_color, nombre_color', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -47,7 +43,12 @@ class Noticia extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'animals' => array(self::HAS_MANY, 'Animal', 'id_color'),
 		);
+	}
+
+	public static function getColor(){
+		return CHtml::listData(Colores::model()->findAll(),'id_color','nombre_color');
 	}
 
 	/**
@@ -56,11 +57,8 @@ class Noticia extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_noticia' => 'Identificador Noticia',
-			'titulo' => 'Título',
-			'fecha_publicacion' => 'Fecha Publicación',
-			'cuerpo' => 'Cuerpo',
-			'image' => 'Foto',
+			'id_color' => 'Id Color',
+			'nombre_color' => 'Nombre Color',
 		);
 	}
 
@@ -82,11 +80,8 @@ class Noticia extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id_noticia',$this->id_noticia);
-		$criteria->compare('titulo',$this->titulo,true);
-		$criteria->compare('fecha_publicacion',$this->fecha_publicacion,true);
-		$criteria->compare('cuerpo',$this->cuerpo,true);
-		$criteria->compare('image',$this->image,true);
+		$criteria->compare('id_color',$this->id_color);
+		$criteria->compare('nombre_color',$this->nombre_color,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -97,7 +92,7 @@ class Noticia extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Noticia the static model class
+	 * @return Colores the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

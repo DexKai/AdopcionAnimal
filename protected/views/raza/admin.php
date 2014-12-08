@@ -44,8 +44,11 @@ return false;
 'filter'=>$model,
 'columns'=>array(
 		'id_raza',
-		'id_especie',
-		'id_color',
+		array(
+			'name'=>'id_especie',
+			'header'=>'Especie',
+			'value'=>'$data->idEspecie->nombre_especie',
+			),	
 		'nombre_raza',
 array(
 'class'=>'booster.widgets.TbButtonColumn',

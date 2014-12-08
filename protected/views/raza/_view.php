@@ -5,11 +5,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id_especie')); ?>:</b>
-	<?php echo CHtml::encode($data->id_especie); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id_color')); ?>:</b>
-	<?php echo CHtml::encode($data->id_color); ?>
+	<?php echo CHtml::encode($data->idEspecie->nombre_especie); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('nombre_raza')); ?>:</b>

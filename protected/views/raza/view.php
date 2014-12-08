@@ -20,7 +20,6 @@ array('label'=>'Manage Raza','url'=>array('admin')),
 'attributes'=>array(
 		'id_raza',
 		'id_especie',
-		'id_color',
 		'nombre_raza',
 ),
 )); ?>

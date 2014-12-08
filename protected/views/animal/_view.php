@@ -49,6 +49,10 @@
 	<?php echo CHtml::encode($data->fecha_ingreso); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('adoptado')); ?>:</b>
+	<?php echo CHtml::encode($data->adoptado); ?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('image')); ?>:</b>
 	<?php echo CHtml::encode($data->image); ?>
 	<br />
