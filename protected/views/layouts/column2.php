@@ -11,18 +11,18 @@
 
 		if($this->menu){
 			$this->widget(
-					'bootstrap.widgets.TbNav',
+					'booster.widgets.TbMenu',
 					array(
-							'type' => TbHtml::NAV_TYPE_PILLS,
+							'type' => 'pills',
 							'stacked' => true,
-							'items' => array(array('label'=>'Operaciones:','icon'=>'wrench', 'url'=>' ', 'active'=>'true'),),
-							'htmlOptions'=>array('active'=>'true'),
+							'items' => array(array('label'=>'Operaciones:','icon'=>'wrench', 'url'=>'#', 'active'=>true),),
+							
 					)
 			);
 			$this->widget(
-					'bootstrap.widgets.TbNav',
+					'booster.widgets.TbMenu',
 					array(
-							'type' => TbHtml::NAV_TYPE_PILLS,
+							'type' => 'pills',
 							'stacked' => true,
 							'items' => $this->menu,
 							'htmlOptions'=>array('class'=>'operations'),

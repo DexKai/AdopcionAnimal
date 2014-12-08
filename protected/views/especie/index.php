@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Noticias',
+	'Especies',
 );
 
 $this->menu=array(
-array('label'=>'Create Noticia','url'=>array('create')),
-array('label'=>'Manage Noticia','url'=>array('admin')),
+array('label'=>'Create Especie','url'=>array('create')),
+array('label'=>'Manage Especie','url'=>array('admin')),
 );
 ?>
 
-<h1>Noticias</h1>
+<h1>Especies</h1>
 
 <?php $this->widget('booster.widgets.TbListView',array(
 'dataProvider'=>$dataProvider,

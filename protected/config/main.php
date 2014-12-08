@@ -18,7 +18,6 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
-		'ext.AweCrud.components.*',
 		'application.modules.cruge.components.*',
 		'application.modules.cruge.extensions.crugemailer.*',
 	),
@@ -32,7 +31,6 @@ return array(
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
 			'generatorPaths' => array('booster.gii',//YIIBOOSTER:REDIRECCIONAS AL GII GENERATOR AL YIIBOOSTER
-			'ext.AweCrud.generators', // AweCrud generators
 			),
 		),
 		'cruge'=>array(
@@ -100,11 +98,7 @@ return array(
 
 	// application components
 	'components'=>array(
-		'messages' => array (
-        	'extensionPaths' => array(
-            	'AweCrud' => 'ext.AweCrud.messages', // AweCrud messages directory.
-        	),
-    	),
+
 		'booster' => array(
                     'class' => 'ext.booster.components.Booster',
                     //'TbHtml'=>true,
@@ -127,9 +121,10 @@ return array(
 			),
 			'format' => array(
 				'datetimeFormat'=>"d M, Y h:m:s a",
+				'dateFormat'=>'d/m/Y',
 			),
 		// uncomment the following to enable URLs in path-format
-		
+		/*
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'showScriptName'=>false,
@@ -140,7 +135,7 @@ return array(
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		),
-		
+		*/
 		'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),
@@ -149,8 +144,8 @@ return array(
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=adopcion4',
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
+			'username' => 'IECI04',
+			'password' => 'dbyjjp4',
 			'charset' => 'utf8',
 		),
 		

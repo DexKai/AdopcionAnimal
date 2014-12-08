@@ -1,6 +1,6 @@
 <?php
 
-class NoticiaController extends Controller
+class PersonaController extends Controller
 {
 /**
 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -61,27 +61,16 @@ $this->render('view',array(
 */
 public function actionCreate()
 {
-$model=new Noticia;
+$model=new Persona;
 
 // Uncomment the following line if AJAX validation is needed
 // $this->performAjaxValidation($model);
 
-if(isset($_POST['Noticia']))
+if(isset($_POST['Persona']))
 {
-$model->attributes=$_POST['Noticia'];
-
-            $rnd = rand(0,9999);  // generate random number between 0-9999
-            $model->attributes=$_POST['Noticia'];
- 
-            $uploadedFile=CUploadedFile::getInstance($model,'image');
-            $fileName = "{$rnd}-{$uploadedFile}";  // random number + file name
-            $model->image = $fileName;
-            $model->fecha_publicacion = new CDbExpression('NOW()');
-
+$model->attributes=$_POST['Persona'];
 if($model->save())
-	$uploadedFile->saveAs(Yii::app()->basePath.'/../images/Noticia/'.$fileName);  // image will uplode to rootDirectory/banner/
-
-$this->redirect(array('view','id'=>$model->id_noticia));
+$this->redirect(array('view','id'=>$model->RUT));
 }
 
 $this->render('create',array(
@@ -101,23 +90,11 @@ $model=$this->loadModel($id);
 // Uncomment the following line if AJAX validation is needed
 // $this->performAjaxValidation($model);
 
-if(isset($_POST['Noticia']))
+if(isset($_POST['Persona']))
 {
-	$_POST['Noticia']['image'] = $model->image;
-    
-	$model->attributes=$_POST['Noticia'];
-	$uploadedFile=CUploadedFile::getInstance($model,'image');
-    
-	if($model->save())
-	{
-		if(!empty($uploadedFile))  // check if uploaded file is set or not
-        {
-            $uploadedFile->saveAs(Yii::app()->basePath.'/../images/Noticia/'.$model->image);  // image will uplode to rootDirectory/banner/
-        }
-       //$this->redirect(array('admin'));
-
-	$this->redirect(array('view','id'=>$model->id_noticia));
-	}
+$model->attributes=$_POST['Persona'];
+if($model->save())
+$this->redirect(array('view','id'=>$model->RUT));
 }
 
 $this->render('update',array(
@@ -150,7 +127,7 @@ throw new CHttpException(400,'Invalid request. Please do not repeat this request
 */
 public function actionIndex()
 {
-$dataProvider=new CActiveDataProvider('Noticia');
+$dataProvider=new CActiveDataProvider('Persona');
 $this->render('index',array(
 'dataProvider'=>$dataProvider,
 ));
@@ -161,10 +138,10 @@ $this->render('index',array(
 */
 public function actionAdmin()
 {
-$model=new Noticia('search');
+$model=new Persona('search');
 $model->unsetAttributes();  // clear any default values
-if(isset($_GET['Noticia']))
-$model->attributes=$_GET['Noticia'];
+if(isset($_GET['Persona']))
+$model->attributes=$_GET['Persona'];
 
 $this->render('admin',array(
 'model'=>$model,
@@ -178,7 +155,7 @@ $this->render('admin',array(
 */
 public function loadModel($id)
 {
-$model=Noticia::model()->findByPk($id);
+$model=Persona::model()->findByPk($id);
 if($model===null)
 throw new CHttpException(404,'The requested page does not exist.');
 return $model;
@@ -190,7 +167,7 @@ return $model;
 */
 protected function performAjaxValidation($model)
 {
-if(isset($_POST['ajax']) && $_POST['ajax']==='noticia-form')
+if(isset($_POST['ajax']) && $_POST['ajax']==='persona-form')
 {
 echo CActiveForm::validate($model);
 Yii::app()->end();

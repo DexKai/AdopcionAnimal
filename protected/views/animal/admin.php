@@ -1,12 +1,12 @@
 <?php
 $this->breadcrumbs=array(
-	'Noticias'=>array('index'),
+	'Animals'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-array('label'=>'List Noticia','url'=>array('index')),
-array('label'=>'Create Noticia','url'=>array('create')),
+array('label'=>'List Animal','url'=>array('index')),
+array('label'=>'Create Animal','url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -15,7 +15,7 @@ $('.search-form').toggle();
 return false;
 });
 $('.search-form form').submit(function(){
-$.fn.yiiGridView.update('noticia-grid', {
+$.fn.yiiGridView.update('animal-grid', {
 data: $(this).serialize()
 });
 return false;
@@ -23,7 +23,7 @@ return false;
 ");
 ?>
 
-<h1>Manage Noticias</h1>
+<h1>Manage Animals</h1>
 
 <p>
 	You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>
@@ -39,15 +39,25 @@ return false;
 </div><!-- search-form -->
 
 <?php $this->widget('booster.widgets.TbGridView',array(
-'id'=>'noticia-grid',
+'id'=>'animal-grid',
 'dataProvider'=>$model->search(),
 'filter'=>$model,
 'columns'=>array(
-		'id_noticia',
-		'titulo',
-		'fecha_publicacion',
-		'cuerpo',
+		'id_animal',
+		'id_especie',
+		'numero_chip',
+		'nombre_animal',
+		'edad_animal',
+		'genero_animal',
+		/*
+		'peso',
+		'desparasitado',
+		'esterilizado',
+		'vacunas',
+		'observaciones',
+		'fecha_ingreso',
 		'image',
+		*/
 array(
 'class'=>'booster.widgets.TbButtonColumn',
 ),
