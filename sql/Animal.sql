@@ -55,21 +55,26 @@ drop table if exists Animal;
 create table Animal
 (
    id_animal            int not null auto_increment,
+   id_color             int,
    id_especie           int not null,
    numero_chip          int not null,
    nombre_animal        varchar(20) not null,
    edad_animal          int default NULL,
-   genero_animal        enum('Sin definir','Macho','Hembra') not null,
-   peso                 float default NULL,
+   genero_animal        enum('Sin definir','Macho','Hembra'),
+   peso                 float not null default NULL,
    desparasitado        enum('Sin definir','Si','No') default NULL,
-   estirilizado         enum('Sin definir','Si','No') default NULL,
+   esterilizado         enum('Sin definir','Si','No') default NULL,
    vacunas              text default NULL,
    observaciones        text,
    fecha_ingreso        date not null,
-   image                varchar(1024),
+   image                varchar(1024) not null,
+   adoptado             enum('No','Si'),
    primary key (id_animal)
 );
 
-
 alter table Animal add constraint FK_es_de foreign key (id_especie)
-      references Especie (id_especie) on delete restrict on update restrict;
+      references Especie (id_especie) on delete cascade on update cascade;
+
+alter table Animal add constraint FK_tiene_color foreign key (id_color)
+      references Colores (id_color) on delete cascade on update cascade;
+
