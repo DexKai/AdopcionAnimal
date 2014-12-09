@@ -8,6 +8,10 @@
 	<?php echo CHtml::encode($data->id_especie); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('id_color')); ?>:</b>
+	<?php echo CHtml::encode($data->id_color); ?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('numero_chip')); ?>:</b>
 	<?php echo CHtml::encode($data->numero_chip); ?>
 	<br />
@@ -24,11 +28,11 @@
 	<?php echo CHtml::encode($data->genero_animal); ?>
 	<br />
 
+	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('peso')); ?>:</b>
 	<?php echo CHtml::encode($data->peso); ?>
 	<br />
 
-	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('desparasitado')); ?>:</b>
 	<?php echo CHtml::encode($data->desparasitado); ?>
 	<br />
@@ -49,12 +53,12 @@
 	<?php echo CHtml::encode($data->fecha_ingreso); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('adoptado')); ?>:</b>
-	<?php echo CHtml::encode($data->adoptado); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('image')); ?>:</b>
 	<?php echo CHtml::encode($data->image); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('adoptado')); ?>:</b>
+	<?php echo CHtml::encode($data->adoptado); ?>
 	<br />
 
 	*/ ?>

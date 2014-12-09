@@ -14,6 +14,3 @@ $this->pageTitle=Yii::app()->name;
 
 <?php if ($rol['itemname']=='Adoptante') { $this->renderPartial('_adoptante');}   ?>
 
-
-
-

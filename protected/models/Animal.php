@@ -6,6 +6,7 @@
  * The followings are the available columns in table 'animal':
  * @property integer $id_animal
  * @property integer $id_especie
+ * @property integer $id_color
  * @property integer $numero_chip
  * @property string $nombre_animal
  * @property integer $edad_animal
@@ -16,12 +17,13 @@
  * @property string $vacunas
  * @property string $observaciones
  * @property string $fecha_ingreso
- * @property integer $adoptado
  * @property string $image
+ * @property string $adoptado
  *
  * The followings are the available model relations:
  * @property Adopcion[] $adopcions
  * @property Especie $idEspecie
+ * @property Colores $idColor
  */
 class Animal extends CActiveRecord
 {
@@ -41,16 +43,17 @@ class Animal extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_especie, numero_chip, nombre_animal, genero_animal, fecha_ingreso', 'required'),
-			array('id_especie, numero_chip, edad_animal, adoptado', 'numerical', 'integerOnly'=>true),
+			array('id_especie, numero_chip, nombre_animal, genero_animal, peso, desparasitado, esterilizado, fecha_ingreso, image, adoptado', 'required'),
+			array('id_especie, id_color, numero_chip, edad_animal', 'numerical', 'integerOnly'=>true),
 			array('peso', 'numerical'),
 			array('nombre_animal', 'length', 'max'=>20),
 			array('genero_animal, desparasitado, esterilizado', 'length', 'max'=>11),
 			array('image', 'length', 'max'=>1024),
+			array('adoptado', 'length', 'max'=>2),
 			array('vacunas, observaciones', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_animal, id_especie, numero_chip, nombre_animal, edad_animal, genero_animal, peso, desparasitado, esterilizado, vacunas, observaciones, fecha_ingreso, adoptado, image', 'safe', 'on'=>'search'),
+			array('id_animal, id_especie, id_color, numero_chip, nombre_animal, edad_animal, genero_animal, peso, desparasitado, esterilizado, vacunas, observaciones, fecha_ingreso, image, adoptado', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -64,6 +67,7 @@ class Animal extends CActiveRecord
 		return array(
 			'adopcions' => array(self::HAS_MANY, 'Adopcion', 'id_animal'),
 			'idEspecie' => array(self::BELONGS_TO, 'Especie', 'id_especie'),
+			'idColor' => array(self::BELONGS_TO, 'Colores', 'id_color'),
 		);
 	}
 
@@ -75,6 +79,7 @@ class Animal extends CActiveRecord
 		return array(
 			'id_animal' => 'Id Animal',
 			'id_especie' => 'Id Especie',
+			'id_color' => 'Id Color',
 			'numero_chip' => 'Numero Chip',
 			'nombre_animal' => 'Nombre Animal',
 			'edad_animal' => 'Edad Animal',
@@ -85,8 +90,8 @@ class Animal extends CActiveRecord
 			'vacunas' => 'Vacunas',
 			'observaciones' => 'Observaciones',
 			'fecha_ingreso' => 'Fecha Ingreso',
-			'adoptado' => 'Adoptado',
 			'image' => 'Image',
+			'adoptado' => 'Adoptado',
 		);
 	}
 
@@ -110,6 +115,7 @@ class Animal extends CActiveRecord
 
 		$criteria->compare('id_animal',$this->id_animal);
 		$criteria->compare('id_especie',$this->id_especie);
+		$criteria->compare('id_color',$this->id_color);
 		$criteria->compare('numero_chip',$this->numero_chip);
 		$criteria->compare('nombre_animal',$this->nombre_animal,true);
 		$criteria->compare('edad_animal',$this->edad_animal);
@@ -120,8 +126,8 @@ class Animal extends CActiveRecord
 		$criteria->compare('vacunas',$this->vacunas,true);
 		$criteria->compare('observaciones',$this->observaciones,true);
 		$criteria->compare('fecha_ingreso',$this->fecha_ingreso,true);
-		$criteria->compare('adoptado',$this->adoptado);
 		$criteria->compare('image',$this->image,true);
+		$criteria->compare('adoptado',$this->adoptado,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

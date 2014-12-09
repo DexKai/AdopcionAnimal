@@ -45,19 +45,20 @@ return false;
 'columns'=>array(
 		'id_animal',
 		'id_especie',
+		'id_color',
 		'numero_chip',
 		'nombre_animal',
 		'edad_animal',
-		'genero_animal',
 		/*
+		'genero_animal',
 		'peso',
 		'desparasitado',
 		'esterilizado',
 		'vacunas',
 		'observaciones',
 		'fecha_ingreso',
-		'adoptado',
 		'image',
+		'adoptado',
 		*/
 array(
 'class'=>'booster.widgets.TbButtonColumn',
