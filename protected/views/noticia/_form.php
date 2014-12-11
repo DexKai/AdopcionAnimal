@@ -25,24 +25,19 @@
 
 	<?php //echo $form->textFieldRow($model,'image',array('class'=>'span5','maxlength'=>15)); ?>
 
+	<?php echo $form->labelEx($model,'image'); ?>
+    <?php echo CHtml::activeFileField($model, 'image'); ?>
+    <?php echo $form->error($model,'image'); ?>
 
-
-        <?php echo $form->labelEx($model,'image'); ?>
-        <?php echo CHtml::activeFileField($model, 'image'); ?>
-        <?php echo $form->error($model,'image'); ?>
-        </br>
-
-<?php if($model->isNewRecord!='1'){ 
-
-     echo CHtml::image(Yii::app()->request->baseUrl.'/images/Noticia/'.$model->image,"image",array("height"=>300, "width"=>400));   // Image shown here if page is update page
-}
-?>	
-
+	<?php if($model->isNewRecord!='1'){
+		echo CHtml::image(Yii::app()->request->baseUrl.'/images/Noticia/'.$model->image,"image",array("height"=>300, "width"=>400));   // Image shown here if page is update page
+	}?>
+<br />
 <div class="form-actions">
 	<?php $this->widget('booster.widgets.TbButton', array(
 			'buttonType'=>'submit',
 			'context'=>'primary',
-			'label'=>$model->isNewRecord ? 'Create' : 'Save',
+			'label'=>$model->isNewRecord ? 'Crear' : 'Guardar',
 		)); ?>
 </div>
 

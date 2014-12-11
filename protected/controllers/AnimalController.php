@@ -27,7 +27,7 @@ public function accessRules()
 {
 return array(
 array('allow',  // allow all users to perform 'index' and 'view' actions
-'actions'=>array('index','view'),
+'actions'=>array('index','view','razasPorEspecie'),
 'users'=>array('*'),
 ),
 array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -69,8 +69,18 @@ $model=new Animal;
 if(isset($_POST['Animal']))
 {
 $model->attributes=$_POST['Animal'];
+
+            $rnd = rand(0,9999);  // generate random number between 0-9999
+            $model->attributes=$_POST['Animal'];
+            $uploadedFile=CUploadedFile::getInstance($model,'image');
+            $fileName = "{$rnd}-{$uploadedFile}";  // random number + file name
+            $model->image = $fileName;
+            $model->fecha_ingreso = new CDbExpression('NOW()');
+
 if($model->save())
-$this->redirect(array('view','id'=>$model->id_animal));
+	$uploadedFile->saveAs(Yii::app()->basePath.'/../images/Animal/'.$fileName);  // image will uplode to rootDirectory/banner/
+
+    $this->redirect(array('view','id'=>$model->id_animal));
 }
 
 $this->render('create',array(
@@ -92,9 +102,21 @@ $model=$this->loadModel($id);
 
 if(isset($_POST['Animal']))
 {
-$model->attributes=$_POST['Animal'];
-if($model->save())
-$this->redirect(array('view','id'=>$model->id_animal));
+	$_POST['Animal']['image'] = $model->image;
+    
+	$model->attributes=$_POST['Animal'];
+	$uploadedFile=CUploadedFile::getInstance($model,'image');
+    
+	if($model->save())
+	{
+		if(!empty($uploadedFile))  // check if uploaded file is set or not
+        {
+            $uploadedFile->saveAs(Yii::app()->basePath.'/../images/Animal/'.$model->image);  // image will uplode to rootDirectory/banner/
+        }
+       //$this->redirect(array('admin'));
+
+	$this->redirect(array('view','id'=>$model->id_animal));
+	}
 }
 
 $this->render('update',array(
@@ -173,4 +195,14 @@ echo CActiveForm::validate($model);
 Yii::app()->end();
 }
 }
+
+/* acción AJAX para llenar DropDown dependiente de provincias*/
+public function actionRazasPorEspecie(){
+	$list = Raza::model()->findAll('id_especie=?',array($_POST["Animal"]['id_especie']));
+	echo '<option value="">Seleccione...</option>';
+	foreach ($list as $data) {
+		echo "<option value=\"{$data->id_raza}\"}>{$data->nombre_raza}</option>";
+	}
+}
+
 }

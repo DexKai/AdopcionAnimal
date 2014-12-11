@@ -58,9 +58,9 @@ class Provincia extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_provincia' => 'Id Provincia',
-			'nombre_provincia' => 'Nombre Provincia',
-			'id_region' => 'Id Region',
+			'id_provincia' => 'Código',
+			'nombre_provincia' => 'Provincia',
+			'id_region' => 'Región',
 		);
 	}
 

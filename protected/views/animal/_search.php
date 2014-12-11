@@ -5,17 +5,19 @@
 
 		<?php echo $form->textFieldGroup($model,'id_animal',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); ?>
 
-		<?php echo $form->textFieldGroup($model,'id_especie',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); ?>
-
-		<?php echo $form->textFieldGroup($model,'id_color',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); ?>
-
 		<?php echo $form->textFieldGroup($model,'numero_chip',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); ?>
 
 		<?php echo $form->textFieldGroup($model,'nombre_animal',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>20)))); ?>
 
-		<?php echo $form->textFieldGroup($model,'edad_animal',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); ?>
+		<?php echo $form->textFieldGroup($model,'id_especie',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); ?>
+
+		<?php echo $form->textFieldGroup($model,'id_raza',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); ?>
+
+		<?php echo $form->textFieldGroup($model,'id_color',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); ?>
 
 		<?php echo $form->dropDownListGroup($model,'genero_animal', array('widgetOptions'=>array('data'=>array("Sin definir"=>"Sin definir","Macho"=>"Macho","Hembra"=>"Hembra",), 'htmlOptions'=>array('class'=>'input-large')))); ?>
+
+		<?php echo $form->textFieldGroup($model,'edad_animal',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); ?>
 
 		<?php echo $form->textFieldGroup($model,'peso',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); ?>
 

@@ -15,8 +15,8 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('cuerpo')); ?>:</b>
 	<?php echo CHtml::encode($data->cuerpo); ?>
 	<br />
-<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('image')); ?>:</b> */?>
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('image')); ?>:</b>
 	<?php echo CHtml::image(Yii::app()->baseUrl.'/images/Noticia/'.$data->image,'imagen',array("height"=>300, "width"=>400)); ?>
 	<br />
 

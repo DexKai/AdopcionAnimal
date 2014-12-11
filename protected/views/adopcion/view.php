@@ -20,7 +20,7 @@ array('label'=>'Manage Adopcion','url'=>array('admin')),
 'attributes'=>array(
 		'id_adopcion',
 		'id_animal',
-		'RUT',
+		'id_rut',
 		'fecha_adopcion',
 ),
 )); ?>

@@ -43,15 +43,18 @@ return false;
 'dataProvider'=>$model->search(),
 'filter'=>$model,
 'columns'=>array(
-		'RUT',
+		'id_rut',
 		'iduser',
-		'id_comuna',
 		'nombre',
 		'apellido_p',
 		'apellido_m',
+		'fecha_nacimiento',
 		/*
 		'genero',
 		'direccion',
+		'id_comuna',
+		'id_provincia',
+		'id_region',
 		'telefono',
 		*/
 array(

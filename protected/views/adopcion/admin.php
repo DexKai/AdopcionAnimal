@@ -45,7 +45,7 @@ return false;
 'columns'=>array(
 		'id_adopcion',
 		'id_animal',
-		'RUT',
+		'id_rut',
 		'fecha_adopcion',
 array(
 'class'=>'booster.widgets.TbButtonColumn',

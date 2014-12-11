@@ -5,12 +5,13 @@
  *
  * The followings are the available columns in table 'animal':
  * @property integer $id_animal
- * @property integer $id_especie
- * @property integer $id_color
  * @property integer $numero_chip
  * @property string $nombre_animal
- * @property integer $edad_animal
+ * @property integer $id_especie
+ * @property integer $id_raza
+ * @property integer $id_color
  * @property string $genero_animal
+ * @property integer $edad_animal
  * @property double $peso
  * @property string $desparasitado
  * @property string $esterilizado
@@ -43,8 +44,8 @@ class Animal extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_especie, numero_chip, nombre_animal, genero_animal, peso, desparasitado, esterilizado, fecha_ingreso, image, adoptado', 'required'),
-			array('id_especie, id_color, numero_chip, edad_animal', 'numerical', 'integerOnly'=>true),
+			array('numero_chip, nombre_animal, id_especie, id_raza, id_color, fecha_ingreso, image', 'required'),
+			array('numero_chip, id_especie, id_raza, id_color, edad_animal', 'numerical', 'integerOnly'=>true),
 			array('peso', 'numerical'),
 			array('nombre_animal', 'length', 'max'=>20),
 			array('genero_animal, desparasitado, esterilizado', 'length', 'max'=>11),
@@ -53,7 +54,8 @@ class Animal extends CActiveRecord
 			array('vacunas, observaciones', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_animal, id_especie, id_color, numero_chip, nombre_animal, edad_animal, genero_animal, peso, desparasitado, esterilizado, vacunas, observaciones, fecha_ingreso, image, adoptado', 'safe', 'on'=>'search'),
+			array('id_animal, numero_chip, nombre_animal, id_especie, id_raza, id_color, genero_animal, edad_animal, peso, desparasitado, esterilizado, vacunas, observaciones, fecha_ingreso, adoptado', 'safe', 'on'=>'search'),
+			array('image', 'file','types'=>'jpg, gif, png', 'allowEmpty'=>true, 'on'=>'update'),
 		);
 	}
 
@@ -77,21 +79,22 @@ class Animal extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_animal' => 'Id Animal',
-			'id_especie' => 'Id Especie',
-			'id_color' => 'Id Color',
-			'numero_chip' => 'Numero Chip',
-			'nombre_animal' => 'Nombre Animal',
-			'edad_animal' => 'Edad Animal',
-			'genero_animal' => 'Genero Animal',
-			'peso' => 'Peso',
+			'id_animal' => 'Código',
+			'numero_chip' => 'Número Chip',
+			'nombre_animal' => 'Nombre',
+			'id_especie' => 'Especie',
+			'id_raza' => 'Raza',
+			'id_color' => 'Color',
+			'genero_animal' => 'Genero',
+			'edad_animal' => 'Edad (meses)',
+			'peso' => 'Peso (kilos)',
 			'desparasitado' => 'Desparasitado',
 			'esterilizado' => 'Esterilizado',
 			'vacunas' => 'Vacunas',
 			'observaciones' => 'Observaciones',
 			'fecha_ingreso' => 'Fecha Ingreso',
-			'image' => 'Image',
-			'adoptado' => 'Adoptado',
+			'image' => 'Foto',
+			'adoptado' => 'Indicador Adoptado',
 		);
 	}
 
@@ -114,12 +117,13 @@ class Animal extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_animal',$this->id_animal);
-		$criteria->compare('id_especie',$this->id_especie);
-		$criteria->compare('id_color',$this->id_color);
 		$criteria->compare('numero_chip',$this->numero_chip);
 		$criteria->compare('nombre_animal',$this->nombre_animal,true);
-		$criteria->compare('edad_animal',$this->edad_animal);
+		$criteria->compare('id_especie',$this->id_especie);
+		$criteria->compare('id_raza',$this->id_raza);
+		$criteria->compare('id_color',$this->id_color);
 		$criteria->compare('genero_animal',$this->genero_animal,true);
+		$criteria->compare('edad_animal',$this->edad_animal);
 		$criteria->compare('peso',$this->peso);
 		$criteria->compare('desparasitado',$this->desparasitado,true);
 		$criteria->compare('esterilizado',$this->esterilizado,true);
@@ -143,5 +147,23 @@ class Animal extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	/* Esta función retornará un array con todas las especies para ser usadas en un DropDown */
+	public function getMenuEspecie(){
+		$especies = Especie::model()->findAll();
+		return CHtml::listData($especies,'id_especie','nombre_especie');
+	}
+
+	/* Esta función retornará un array con todas las razas para ser usadas en un DropDown */
+	public function getMenuRaza(){
+		$razas = Raza::model()->findAll();
+		return CHtml::listData($razas,'id_raza','nombre_raza');
+	}
+
+	/* Esta función retornará un array con todas las colores para ser usadas en un DropDown */
+	public function getMenuColores(){
+		$colores = Colores::model()->findAll();
+		return CHtml::listData($colores,'id_color','nombre_color');
 	}
 }

@@ -5,12 +5,12 @@
  *
  * The followings are the available columns in table 'adopcion':
  * @property integer $id_adopcion
- * @property string $RUT
  * @property integer $id_animal
+ * @property string $id_rut
  * @property string $fecha_adopcion
  *
  * The followings are the available model relations:
- * @property Persona $rUT
+ * @property Persona $idRut
  * @property Animal $idAnimal
  */
 class Adopcion extends CActiveRecord
@@ -31,12 +31,13 @@ class Adopcion extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('RUT, fecha_adopcion', 'required'),
+			array('id_rut', 'required'),
 			array('id_animal', 'numerical', 'integerOnly'=>true),
-			array('RUT', 'length', 'max'=>12),
+			array('id_rut', 'length', 'max'=>12),
+			array('fecha_adopcion', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_adopcion, RUT, id_animal, fecha_adopcion', 'safe', 'on'=>'search'),
+			array('id_adopcion, id_animal, id_rut, fecha_adopcion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -48,7 +49,7 @@ class Adopcion extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'rUT' => array(self::BELONGS_TO, 'Persona', 'RUT'),
+			'idRut' => array(self::BELONGS_TO, 'Persona', 'id_rut'),
 			'idAnimal' => array(self::BELONGS_TO, 'Animal', 'id_animal'),
 		);
 	}
@@ -59,10 +60,10 @@ class Adopcion extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_adopcion' => 'Id Adopcion',
-			'RUT' => 'Rut',
-			'id_animal' => 'Id Animal',
-			'fecha_adopcion' => 'Fecha Adopcion',
+			'id_adopcion' => 'Código',
+			'id_animal' => 'Animal',
+			'id_rut' => 'Adoptante',
+			'fecha_adopcion' => 'Fecha Adopción',
 		);
 	}
 
@@ -85,8 +86,8 @@ class Adopcion extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_adopcion',$this->id_adopcion);
-		$criteria->compare('RUT',$this->RUT,true);
 		$criteria->compare('id_animal',$this->id_animal);
+		$criteria->compare('id_rut',$this->id_rut,true);
 		$criteria->compare('fecha_adopcion',$this->fecha_adopcion,true);
 
 		return new CActiveDataProvider($this, array(

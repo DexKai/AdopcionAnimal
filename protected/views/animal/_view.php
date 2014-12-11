@@ -4,14 +4,6 @@
 	<?php echo CHtml::link(CHtml::encode($data->id_animal),array('view','id'=>$data->id_animal)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id_especie')); ?>:</b>
-	<?php echo CHtml::encode($data->id_especie); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id_color')); ?>:</b>
-	<?php echo CHtml::encode($data->id_color); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('numero_chip')); ?>:</b>
 	<?php echo CHtml::encode($data->numero_chip); ?>
 	<br />
@@ -20,15 +12,26 @@
 	<?php echo CHtml::encode($data->nombre_animal); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('edad_animal')); ?>:</b>
-	<?php echo CHtml::encode($data->edad_animal); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('id_especie')); ?>:</b>
+	<?php echo CHtml::encode($data->id_especie); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('id_raza')); ?>:</b>
+	<?php echo CHtml::encode($data->id_raza); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('id_color')); ?>:</b>
+	<?php echo CHtml::encode($data->id_color); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('genero_animal')); ?>:</b>
 	<?php echo CHtml::encode($data->genero_animal); ?>
 	<br />
 
-	<?php /*
+	<b><?php echo CHtml::encode($data->getAttributeLabel('edad_animal')); ?>:</b>
+	<?php echo CHtml::encode($data->edad_animal); ?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('peso')); ?>:</b>
 	<?php echo CHtml::encode($data->peso); ?>
 	<br />
@@ -54,13 +57,13 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('image')); ?>:</b>
-	<?php echo CHtml::encode($data->image); ?>
+	<?php echo CHtml::image(Yii::app()->baseUrl.'/images/Animal/'.$data->image,'imagen',array("height"=>300, "width"=>400)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('adoptado')); ?>:</b>
 	<?php echo CHtml::encode($data->adoptado); ?>
 	<br />
 
-	*/ ?>
+
 
 </div>

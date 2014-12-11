@@ -58,9 +58,9 @@ class Comuna extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_comuna' => 'Id Comuna',
-			'nombre_comuna' => 'Nombre Comuna',
-			'id_provincia' => 'Id Provincia',
+			'id_comuna' => 'Código',
+			'nombre_comuna' => 'Comuna',
+			'id_provincia' => 'Provincia',
 		);
 	}
 

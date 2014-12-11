@@ -72,7 +72,6 @@ $model->attributes=$_POST['Noticia'];
 
             $rnd = rand(0,9999);  // generate random number between 0-9999
             $model->attributes=$_POST['Noticia'];
- 
             $uploadedFile=CUploadedFile::getInstance($model,'image');
             $fileName = "{$rnd}-{$uploadedFile}";  // random number + file name
             $model->image = $fileName;
@@ -81,7 +80,7 @@ $model->attributes=$_POST['Noticia'];
 if($model->save())
 	$uploadedFile->saveAs(Yii::app()->basePath.'/../images/Noticia/'.$fileName);  // image will uplode to rootDirectory/banner/
 
-$this->redirect(array('view','id'=>$model->id_noticia));
+    $this->redirect(array('view','id'=>$model->id_noticia));
 }
 
 $this->render('create',array(

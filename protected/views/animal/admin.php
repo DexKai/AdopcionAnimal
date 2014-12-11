@@ -44,13 +44,14 @@ return false;
 'filter'=>$model,
 'columns'=>array(
 		'id_animal',
-		'id_especie',
-		'id_color',
 		'numero_chip',
 		'nombre_animal',
-		'edad_animal',
+		'id_especie',
+		'id_raza',
+		'id_color',
 		/*
 		'genero_animal',
+		'edad_animal',
 		'peso',
 		'desparasitado',
 		'esterilizado',

@@ -12,7 +12,6 @@
  */
 class Noticia extends CActiveRecord
 {
-	public $picture;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -56,10 +55,10 @@ class Noticia extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_noticia' => 'Identificador Noticia',
+			'id_noticia' => 'Código',
 			'titulo' => 'Título',
 			'fecha_publicacion' => 'Fecha Publicación',
-			'cuerpo' => 'Cuerpo',
+			'cuerpo' => 'Contenido',
 			'image' => 'Foto',
 		);
 	}

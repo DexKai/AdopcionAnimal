@@ -27,7 +27,7 @@ public function accessRules()
 {
 return array(
 array('allow',  // allow all users to perform 'index' and 'view' actions
-'actions'=>array('index','view'),
+'actions'=>array('index','view','provinciasPorRegion','comunasPorProvincia'),
 'users'=>array('*'),
 ),
 array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -70,7 +70,7 @@ if(isset($_POST['Persona']))
 {
 $model->attributes=$_POST['Persona'];
 if($model->save())
-$this->redirect(array('view','id'=>$model->RUT));
+$this->redirect(array('view','id'=>$model->id_rut));
 }
 
 $this->render('create',array(
@@ -94,7 +94,7 @@ if(isset($_POST['Persona']))
 {
 $model->attributes=$_POST['Persona'];
 if($model->save())
-$this->redirect(array('view','id'=>$model->RUT));
+$this->redirect(array('view','id'=>$model->id_rut));
 }
 
 $this->render('update',array(
@@ -173,4 +173,23 @@ echo CActiveForm::validate($model);
 Yii::app()->end();
 }
 }
+
+/* acción AJAX para llenar DropDown dependiente de provincias*/
+public function actionProvinciasPorRegion(){
+	$list = Provincia::model()->findAll('id_region=?',array($_POST["Persona"]['id_region']));
+	echo '<option value="">Seleccione...</option>';
+	foreach ($list as $data) {
+		echo "<option value=\"{$data->id_provincia}\"}>{$data->nombre_provincia}</option>";
+	}
+}
+
+/* acción AJAX para llenar DropDown dependiente de comunas*/
+public function actionComunasPorProvincia(){
+	$list = Comuna::model()->findAll('id_provincia=?',array($_POST["Persona"]['id_provincia']));
+	echo '<option value="">Seleccione...</option>';
+	foreach ($list as $data) {
+		echo "<option value=\"{$data->id_comuna}\"}>{$data->nombre_comuna}</option>";
+	}
+}
+
 }

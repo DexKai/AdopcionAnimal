@@ -8,8 +8,8 @@
 	<?php echo CHtml::encode($data->id_animal); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('RUT')); ?>:</b>
-	<?php echo CHtml::encode($data->RUT); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('id_rut')); ?>:</b>
+	<?php echo CHtml::encode($data->id_rut); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('fecha_adopcion')); ?>:</b>

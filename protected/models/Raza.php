@@ -56,7 +56,7 @@ class Raza extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_raza' => 'Código Raza',
+			'id_raza' => 'Código',
 			'id_especie' => 'Especie',
 			'nombre_raza' => 'Raza',
 		);

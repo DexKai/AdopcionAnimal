@@ -60,8 +60,8 @@ class Especie extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_especie' => 'Código Especie',
-			'nombre_especie' => 'Nombre Especie',
+			'id_especie' => 'Código',
+			'nombre_especie' => 'Especie',
 		);
 	}
 
