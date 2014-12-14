@@ -43,12 +43,13 @@ return false;
 'dataProvider'=>$model->search(),
 'filter'=>$model,
 'columns'=>array(
-		'id_raza',
+		//'id_raza',
 		array(
 			'name'=>'id_especie',
 			'header'=>'Especie',
 			'value'=>'$data->idEspecie->nombre_especie',
-			),	
+			'filter' =>CHtml::listData(Especie::model()->findAll(),'id_especie','nombre_especie'),
+		),
 		'nombre_raza',
 array(
 'class'=>'booster.widgets.TbButtonColumn',

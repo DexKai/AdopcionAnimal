@@ -19,7 +19,11 @@ array('label'=>'Manage Raza','url'=>array('admin')),
 'data'=>$model,
 'attributes'=>array(
 		'id_raza',
-		'id_especie',
+		array(
+			'name'=>'id_especie',
+			'header'=>'Especie',
+			'value'=>$model->idEspecie->nombre_especie,
+		),
 		'nombre_raza',
 ),
 )); ?>

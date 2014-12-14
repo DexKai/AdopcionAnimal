@@ -77,7 +77,7 @@
 		echo CHtml::image(Yii::app()->request->baseUrl.'/images/Animal/'.$model->image,"image",array("height"=>300, "width"=>400));   // Image shown here if page is update page
 	}?>
 <br />
-	<?php //echo $form->dropDownListGroup($model,'adoptado', array('widgetOptions'=>array('data'=>array("No"=>"No","Si"=>"Si",), 'htmlOptions'=>array('class'=>'input-large')))); ?>
+	<?php echo $form->dropDownListGroup($model,'adoptado', array('widgetOptions'=>array('data'=>array("No"=>"No","Si"=>"Si",), 'htmlOptions'=>array('class'=>'input-large')))); ?>
 
 <div class="form-actions">
 	<?php $this->widget('booster.widgets.TbButton', array(

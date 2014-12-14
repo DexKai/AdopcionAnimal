@@ -1,6 +1,6 @@
 <div class="view">
 
-		<b><?php echo CHtml::encode($data->getAttributeLabel('id_especie')); ?>:</b>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('id_especie')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->id_especie),array('view','id'=>$data->id_especie)); ?>
 	<br />
 

@@ -50,10 +50,6 @@ class Especie extends CActiveRecord
 		);
 	}
 
-	public static function getEspecie(){
-		return CHtml::listData(Especie::model()->findAll(),'id_especie','nombre_especie');
-	}
-
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
@@ -100,5 +96,9 @@ class Especie extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	public static function getEspecie(){
+		return CHtml::listData(Especie::model()->findAll(),'id_especie','nombre_especie');
 	}
 }

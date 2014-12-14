@@ -85,7 +85,7 @@ class Animal extends CActiveRecord
 			'id_especie' => 'Especie',
 			'id_raza' => 'Raza',
 			'id_color' => 'Color',
-			'genero_animal' => 'Genero',
+			'genero_animal' => 'Género',
 			'edad_animal' => 'Edad (meses)',
 			'peso' => 'Peso (kilos)',
 			'desparasitado' => 'Desparasitado',
