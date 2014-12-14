@@ -4,8 +4,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-array('label'=>'Create Persona','url'=>array('create')),
-array('label'=>'Manage Persona','url'=>array('admin')),
+array('label'=>'Crear Persona','url'=>array('create')),
+array('label'=>'Administrar Personas','url'=>array('admin')),
 );
 ?>
 

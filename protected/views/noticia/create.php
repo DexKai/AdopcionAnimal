@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
 	'Noticias'=>array('index'),
-	'Create',
+	'Crear',
 );
 
 $this->menu=array(
-array('label'=>'List Noticia','url'=>array('index')),
-array('label'=>'Manage Noticia','url'=>array('admin')),
+array('label'=>'Lista Noticias','url'=>array('index')),
+array('label'=>'Administrar Noticias','url'=>array('admin')),
 );
 ?>
 
-<h1>Create Noticia</h1>
+<h1>Crear Noticia</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

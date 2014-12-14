@@ -2,17 +2,17 @@
 $this->breadcrumbs=array(
 	'Razas'=>array('index'),
 	$model->id_raza=>array('view','id'=>$model->id_raza),
-	'Update',
+	'Actualizar',
 );
 
 	$this->menu=array(
-	array('label'=>'List Raza','url'=>array('index')),
-	array('label'=>'Create Raza','url'=>array('create')),
-	array('label'=>'View Raza','url'=>array('view','id'=>$model->id_raza)),
-	array('label'=>'Manage Raza','url'=>array('admin')),
+	array('label'=>'Lista Razas','url'=>array('index')),
+	array('label'=>'Crear Raza','url'=>array('create')),
+	array('label'=>'Ver Raza','url'=>array('view','id'=>$model->id_raza)),
+	array('label'=>'Administrar Razas','url'=>array('admin')),
 	);
 	?>
 
-	<h1>Update Raza <?php echo $model->id_raza; ?></h1>
+	<h1>Actualizar Raza <?php echo $model->id_raza; ?></h1>
 
 <?php echo $this->renderPartial('_form',array('model'=>$model)); ?>

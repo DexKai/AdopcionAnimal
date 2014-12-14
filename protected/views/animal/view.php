@@ -1,19 +1,19 @@
 <?php
 $this->breadcrumbs=array(
-	'Animals'=>array('index'),
+	'Animales'=>array('index'),
 	$model->id_animal,
 );
 
 $this->menu=array(
-array('label'=>'List Animal','url'=>array('index')),
-array('label'=>'Create Animal','url'=>array('create')),
-array('label'=>'Update Animal','url'=>array('update','id'=>$model->id_animal)),
-array('label'=>'Delete Animal','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id_animal),'confirm'=>'Are you sure you want to delete this item?')),
-array('label'=>'Manage Animal','url'=>array('admin')),
+array('label'=>'Lista Animales','url'=>array('index')),
+array('label'=>'Crear Animal','url'=>array('create')),
+array('label'=>'Editar Animal','url'=>array('update','id'=>$model->id_animal)),
+array('label'=>'Eliminar Animal','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id_animal),'confirm'=>'¿Está seguro que desea borrar este elemento?')),
+array('label'=>'Administrar Animales','url'=>array('admin')),
 );
 ?>
 
-<h1>View Animal #<?php echo $model->id_animal; ?></h1>
+<h1>Ver Animal #<?php echo $model->id_animal; ?></h1>
 
 <?php $this->widget('booster.widgets.TbDetailView',array(
 'data'=>$model,

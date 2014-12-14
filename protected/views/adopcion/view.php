@@ -1,19 +1,19 @@
 <?php
 $this->breadcrumbs=array(
-	'Adopcions'=>array('index'),
+	'Adopciones'=>array('index'),
 	$model->id_adopcion,
 );
 
 $this->menu=array(
-array('label'=>'List Adopcion','url'=>array('index')),
-array('label'=>'Create Adopcion','url'=>array('create')),
-array('label'=>'Update Adopcion','url'=>array('update','id'=>$model->id_adopcion)),
-array('label'=>'Delete Adopcion','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id_adopcion),'confirm'=>'Are you sure you want to delete this item?')),
-array('label'=>'Manage Adopcion','url'=>array('admin')),
+array('label'=>'Lista Adopciones','url'=>array('index')),
+array('label'=>'Crear Adopción','url'=>array('create')),
+array('label'=>'Actualizar Adopción','url'=>array('update','id'=>$model->id_adopcion)),
+array('label'=>'Eliminar Adopción','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id_adopcion),'confirm'=>'¿Está seguro que desea borrar este elemento?')),
+array('label'=>'Administrar Adopciones','url'=>array('admin')),
 );
 ?>
 
-<h1>View Adopcion #<?php echo $model->id_adopcion; ?></h1>
+<h1>Ver Adopción #<?php echo $model->id_adopcion; ?></h1>
 
 <?php $this->widget('booster.widgets.TbDetailView',array(
 'data'=>$model,

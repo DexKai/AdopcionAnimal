@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Adopcions'=>array('index'),
-	'Create',
+	'Adopciones'=>array('index'),
+	'Crear',
 );
 
 $this->menu=array(
-array('label'=>'List Adopcion','url'=>array('index')),
-array('label'=>'Manage Adopcion','url'=>array('admin')),
+array('label'=>'Lista Adopciones','url'=>array('index')),
+array('label'=>'Administrar Adopciones','url'=>array('admin')),
 );
 ?>
 
-<h1>Create Adopcion</h1>
+<h1>Crear Adopción</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -4,8 +4,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-array('label'=>'Create Especie','url'=>array('create')),
-array('label'=>'Manage Especie','url'=>array('admin')),
+array('label'=>'Crear Especie','url'=>array('create')),
+array('label'=>'Administrar Especies','url'=>array('admin')),
 );
 ?>
 

@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
 	'Personas'=>array('index'),
-	'Create',
+	'Crear',
 );
 
 $this->menu=array(
-array('label'=>'List Persona','url'=>array('index')),
-array('label'=>'Manage Persona','url'=>array('admin')),
+array('label'=>'Lista Personas','url'=>array('index')),
+array('label'=>'Administrar Personas','url'=>array('admin')),
 );
 ?>
 
-<h1>Create Persona</h1>
+<h1>Crear Persona</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

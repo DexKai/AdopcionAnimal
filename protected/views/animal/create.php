@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Animals'=>array('index'),
-	'Create',
+	'Animales'=>array('index'),
+	'Crear',
 );
 
 $this->menu=array(
-array('label'=>'List Animal','url'=>array('index')),
-array('label'=>'Manage Animal','url'=>array('admin')),
+array('label'=>'Lista Animales','url'=>array('index')),
+array('label'=>'Administrar Animales','url'=>array('admin')),
 );
 ?>
 
-<h1>Create Animal</h1>
+<h1>Crear Animal</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -5,15 +5,15 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-array('label'=>'List Noticia','url'=>array('index')),
-array('label'=>'Create Noticia','url'=>array('create')),
-array('label'=>'Update Noticia','url'=>array('update','id'=>$model->id_noticia)),
-array('label'=>'Delete Noticia','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id_noticia),'confirm'=>'Are you sure you want to delete this item?')),
-array('label'=>'Manage Noticia','url'=>array('admin')),
+array('label'=>'Lista Noticias','url'=>array('index')),
+array('label'=>'Crear Noticia','url'=>array('create')),
+array('label'=>'Actualizar Noticia','url'=>array('update','id'=>$model->id_noticia)),
+array('label'=>'Eliminar Noticia','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id_noticia),'confirm'=>'¿Está seguro que desea borrar este elemento?')),
+array('label'=>'Administrar Noticias','url'=>array('admin')),
 );
 ?>
 
-<h1>View Noticia #<?php echo $model->id_noticia; ?></h1>
+<h1>Ver Noticia #<?php echo $model->id_noticia; ?></h1>
 
 <?php $this->widget('booster.widgets.TbDetailView',array(
 'data'=>$model,

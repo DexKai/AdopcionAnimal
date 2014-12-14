@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
 	'Razas'=>array('index'),
-	'Create',
+	'Crear',
 );
 
 $this->menu=array(
-array('label'=>'List Raza','url'=>array('index')),
-array('label'=>'Manage Raza','url'=>array('admin')),
+array('label'=>'Lista Raza','url'=>array('index')),
+array('label'=>'Administrar Razas','url'=>array('admin')),
 );
 ?>
 
-<h1>Create Raza</h1>
+<h1>Crear Raza</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

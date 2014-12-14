@@ -4,8 +4,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-array('label'=>'Create Noticia','url'=>array('create')),
-array('label'=>'Manage Noticia','url'=>array('admin')),
+array('label'=>'Crear Noticia','url'=>array('create')),
+array('label'=>'Administrar Noticias','url'=>array('admin')),
 );
 ?>
 

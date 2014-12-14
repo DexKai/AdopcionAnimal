@@ -5,7 +5,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 array('label'=>'Create Raza','url'=>array('create')),
-array('label'=>'Manage Raza','url'=>array('admin')),
+array('label'=>'Administrar Razas','url'=>array('admin')),
 );
 ?>
 

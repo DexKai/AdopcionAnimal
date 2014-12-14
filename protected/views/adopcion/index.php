@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Adopcions',
+	'Adopciones',
 );
 
 $this->menu=array(
-array('label'=>'Create Adopcion','url'=>array('create')),
-array('label'=>'Manage Adopcion','url'=>array('admin')),
+array('label'=>'Crear Adopción','url'=>array('create')),
+array('label'=>'Administrar Adopciones','url'=>array('admin')),
 );
 ?>
 
-<h1>Adopcions</h1>
+<h1>Adopciones</h1>
 
 <?php $this->widget('booster.widgets.TbListView',array(
 'dataProvider'=>$dataProvider,

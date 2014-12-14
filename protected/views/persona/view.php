@@ -5,15 +5,15 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-array('label'=>'List Persona','url'=>array('index')),
-array('label'=>'Create Persona','url'=>array('create')),
-array('label'=>'Update Persona','url'=>array('update','id'=>$model->id_rut)),
-array('label'=>'Delete Persona','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id_rut),'confirm'=>'Are you sure you want to delete this item?')),
-array('label'=>'Manage Persona','url'=>array('admin')),
+array('label'=>'Lista Personas','url'=>array('index')),
+array('label'=>'Crear Persona','url'=>array('create')),
+array('label'=>'Actualizar Persona','url'=>array('update','id'=>$model->id_rut)),
+array('label'=>'Eliminar Persona','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id_rut),'confirm'=>'¿Está seguro que desea borrar este elemento?')),
+array('label'=>'Administrar Personas','url'=>array('admin')),
 );
 ?>
 
-<h1>View Persona #<?php echo $model->id_rut; ?></h1>
+<h1>Ver Persona #<?php echo $model->id_rut; ?></h1>
 
 <?php $this->widget('booster.widgets.TbDetailView',array(
 'data'=>$model,

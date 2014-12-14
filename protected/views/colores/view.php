@@ -5,15 +5,15 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-array('label'=>'List Colores','url'=>array('index')),
-array('label'=>'Create Colores','url'=>array('create')),
-array('label'=>'Update Colores','url'=>array('update','id'=>$model->id_color)),
-array('label'=>'Delete Colores','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id_color),'confirm'=>'Are you sure you want to delete this item?')),
-array('label'=>'Manage Colores','url'=>array('admin')),
+array('label'=>'Lista Colores','url'=>array('index')),
+array('label'=>'Crear Color','url'=>array('create')),
+array('label'=>'Actualizar Color','url'=>array('update','id'=>$model->id_color)),
+array('label'=>'Eliminar Color','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id_color),'confirm'=>'¿Está seguro que desea borrar este elemento?')),
+array('label'=>'Administrar Colores','url'=>array('admin')),
 );
 ?>
 
-<h1>View Colores #<?php echo $model->id_color; ?></h1>
+<h1>Ver Color #<?php echo $model->id_color; ?></h1>
 
 <?php $this->widget('booster.widgets.TbDetailView',array(
 'data'=>$model,

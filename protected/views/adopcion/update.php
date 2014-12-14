@@ -1,18 +1,18 @@
 <?php
 $this->breadcrumbs=array(
-	'Adopcions'=>array('index'),
+	'Adopciones'=>array('index'),
 	$model->id_adopcion=>array('view','id'=>$model->id_adopcion),
-	'Update',
+	'Actualizar',
 );
 
 	$this->menu=array(
-	array('label'=>'List Adopcion','url'=>array('index')),
-	array('label'=>'Create Adopcion','url'=>array('create')),
-	array('label'=>'View Adopcion','url'=>array('view','id'=>$model->id_adopcion)),
-	array('label'=>'Manage Adopcion','url'=>array('admin')),
+	array('label'=>'Lista Adopciones','url'=>array('index')),
+	array('label'=>'Crear Adopción','url'=>array('create')),
+	array('label'=>'Ver Adopción','url'=>array('view','id'=>$model->id_adopcion)),
+	array('label'=>'Administrar Adopciones','url'=>array('admin')),
 	);
 	?>
 
-	<h1>Update Adopcion <?php echo $model->id_adopcion; ?></h1>
+	<h1>Actualizar Adopción <?php echo $model->id_adopcion; ?></h1>
 
 <?php echo $this->renderPartial('_form',array('model'=>$model)); ?>

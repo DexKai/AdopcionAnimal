@@ -4,8 +4,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-array('label'=>'Create Colores','url'=>array('create')),
-array('label'=>'Manage Colores','url'=>array('admin')),
+array('label'=>'Crear Color','url'=>array('create')),
+array('label'=>'Administrar Colores','url'=>array('admin')),
 );
 ?>
 
