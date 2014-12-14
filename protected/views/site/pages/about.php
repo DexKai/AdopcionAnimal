@@ -11,26 +11,7 @@ array(
 ?>
 <h1>Acerca</h1>
 
-<h2>Integrantes - Grupo 4 - ADOPCIONANIMAL</h2>
 
-
-<ul>
-	<li type="square">Joel Salazar - Jefe Proyecto</li>
-	<li type="square">Pedro Soto Soto - Programador</li>	
-	<li type="square">Yojans Cid Varela - Control de Calidad</li>
-	<li type="square">Jonatan Poza Toro - Analista</li>
-</ul>
-
-<h2>Información</h2>
-
-<ul>
-	<p>Cliente:	Cristian Herrera</p>
-	<p>Profesor: Pedro Campos</p>
-	<p>Ingeniería de Software</p>
-	<p>Universidad del Bío-Bío</p>
-	<p>Ingeniería de Ejecución en Computación e Informática</p>
-
-</ul>
 
 <dl>
   <dt>Nombre</dt>
@@ -60,3 +41,24 @@ array(
   	<dd><li type="square">Denunciar actos de maltrato que tengan directa relación con la tenencia de animales.</li></dd>
   </dd>
 <br>
+
+<h3>Equipo de Desarrollo</h3>
+<h4>Grupo 4</h4>
+
+<ul>
+  <li type="square">Joel Salazar - Jefe Proyecto</li>
+  <li type="square">Pedro Soto Soto - Programador</li>  
+  <li type="square">Yojans Cid Varela - Control de Calidad</li>
+  <li type="square">Jonatan Poza Toro - Analista</li>
+</ul>
+
+<h4>Información</h4>
+
+<ul>
+  <dd><li type="square">Cliente: Cristian Herrera</li>
+  <dd><li type="square">Profesor: Pedro Campos</li>
+  <dd><li type="square">Ingeniería de Software</li>
+  <dd><li type="square">Universidad del Bío-Bío</li>
+  <dd><li type="square">Ingeniería de Ejecución en Computación e Informática</li>
+
+</ul>

@@ -20,6 +20,7 @@ return array(
 		'application.components.*',
 		'application.modules.cruge.components.*',
 		'application.modules.cruge.extensions.crugemailer.*',
+		'application.extensions.galleria.*'
 	),
 
 	'modules'=>array(
@@ -174,6 +175,6 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'webmaster@example.com',
+		'adminEmail'=>'dex.pgsoto@gmail.com',
 	),
 );
