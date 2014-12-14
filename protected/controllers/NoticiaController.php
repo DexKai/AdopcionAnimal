@@ -195,4 +195,9 @@ echo CActiveForm::validate($model);
 Yii::app()->end();
 }
 }
+
+public function formatearFecha($fecha){
+    list($a,$m,$d)=explode("-",$fecha);
+    return $d."-".$m."-".$a;
+}
 }

@@ -192,4 +192,8 @@ public function actionComunasPorProvincia(){
 	}
 }
 
+public function formatearFecha($fecha){
+    list($a,$m,$d)=explode("-",$fecha);
+    return $d."-".$m."-".$a;
+}
 }

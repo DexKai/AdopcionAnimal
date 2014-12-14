@@ -53,7 +53,8 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('fecha_ingreso')); ?>:</b>
-	<?php echo CHtml::encode($data->fecha_ingreso); ?>
+	<?php //echo CHtml::encode($data->fecha_ingreso); ?>
+	<?php echo CHtml::encode($this->formatearFecha($data->fecha_ingreso)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('image')); ?>:</b>

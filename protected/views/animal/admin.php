@@ -39,14 +39,14 @@ return false;
 			'value'=>'$data->idEspecie->nombre_especie',
 			'filter' =>CHtml::listData(Especie::model()->findAll(),'id_especie','nombre_especie'),
 		),
-
+/*
 		array(
 			'name'=>'id_raza',
 			'header'=>'Raza',
 
 			'filter' =>CHtml::listData(Raza::model()->findAll(),'id_raza','nombre_raza'),
 		),
-
+*/
 		array(
 			'name'=>'genero_animal',
 			'header'=>'Género',

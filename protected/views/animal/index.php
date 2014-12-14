@@ -4,8 +4,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-array('label'=>'Crear Animal','url'=>array('create')),
-array('label'=>'Administrar Animales','url'=>array('admin')),
+array('label'=>'Crear Animal','url'=>array('create'), 'visible'=>Yii::app()->user->checkAccess('admin')),
+array('label'=>'Administrar Animales','url'=>array('admin'), 'visible'=>Yii::app()->user->checkAccess('admin')),
 );
 ?>
 

@@ -69,6 +69,7 @@ $model=new Adopcion;
 if(isset($_POST['Adopcion']))
 {
 $model->attributes=$_POST['Adopcion'];
+$model->fecha_adopcion = new CDbExpression('NOW()');
 if($model->save())
 $this->redirect(array('view','id'=>$model->id_adopcion));
 }
@@ -172,5 +173,10 @@ if(isset($_POST['ajax']) && $_POST['ajax']==='adopcion-form')
 echo CActiveForm::validate($model);
 Yii::app()->end();
 }
+}
+
+public function formatearFecha($fecha){
+    list($a,$m,$d)=explode("-",$fecha);
+    return $d."-".$m."-".$a;
 }
 }

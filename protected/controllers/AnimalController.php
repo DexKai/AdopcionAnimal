@@ -61,24 +61,24 @@ $this->render('view',array(
 */
 public function actionCreate()
 {
-$model=new Animal;
+	$model=new Animal;
 
 // Uncomment the following line if AJAX validation is needed
 // $this->performAjaxValidation($model);
 
-if(isset($_POST['Animal']))
-{
-$model->attributes=$_POST['Animal'];
+	if(isset($_POST['Animal']))
+	{
+		$model->attributes=$_POST['Animal'];
 
-            $rnd = rand(0,9999);  // generate random number between 0-9999
-            $model->attributes=$_POST['Animal'];
-            $uploadedFile=CUploadedFile::getInstance($model,'image');
-            $fileName = "{$rnd}-{$uploadedFile}";  // random number + file name
-            $model->image = $fileName;
-            $model->fecha_ingreso = new CDbExpression('NOW()');
+        $rnd = rand(0,9999);  // generate random number between 0-9999
+        $model->attributes=$_POST['Animal'];
+        $uploadedFile=CUploadedFile::getInstance($model,'image');
+        $fileName = "{$rnd}-{$uploadedFile}";  // random number + file name
+        $model->image = $fileName;
+        $model->fecha_ingreso = new CDbExpression('NOW()');
 
-if($model->save())
-	$uploadedFile->saveAs(Yii::app()->basePath.'/../images/Animal/'.$fileName);  // image will uplode to rootDirectory/banner/
+	if($model->save())
+		$uploadedFile->saveAs(Yii::app()->basePath.'/../images/Animal/'.$fileName);  // image will uplode to rootDirectory/banner/
 
     $this->redirect(array('view','id'=>$model->id_animal));
 }
@@ -205,4 +205,8 @@ public function actionRazasPorEspecie(){
 	}
 }
 
+public function formatearFecha($fecha){
+	list($a,$m,$d)=explode("-",$fecha);
+	return $d."-".$m."-".$a;
+}
 }

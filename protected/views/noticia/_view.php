@@ -9,7 +9,8 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('fecha_publicacion')); ?>:</b>
-	<?php echo CHtml::encode($data->fecha_publicacion); ?>
+	<?php //echo CHtml::encode($data->fecha_publicacion); ?>
+	<?php echo CHtml::encode($this->formatearFecha($data->fecha_publicacion)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('cuerpo')); ?>:</b>
@@ -17,6 +18,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('image')); ?>:</b>
+	<br />
 	<?php echo CHtml::image(Yii::app()->baseUrl.'/images/Noticia/'.$data->image,'imagen',array("height"=>300, "width"=>400)); ?>
 	<br />
 

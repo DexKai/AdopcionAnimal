@@ -21,7 +21,8 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('fecha_nacimiento')); ?>:</b>
-	<?php echo CHtml::encode($data->fecha_nacimiento); ?>
+	<?php //echo CHtml::encode($data->fecha_nacimiento); ?>
+	<?php echo CHtml::encode($this->formatearFecha($data->fecha_nacimiento)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('genero')); ?>:</b>

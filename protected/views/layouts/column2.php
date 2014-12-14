@@ -16,7 +16,6 @@
 							'type' => 'pills',
 							'stacked' => true,
 							'items' => array(array('label'=>'Operaciones:','icon'=>'wrench', 'url'=>'#', 'active'=>true),),
-							
 					)
 			);
 			$this->widget(

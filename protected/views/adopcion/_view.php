@@ -13,7 +13,8 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('fecha_adopcion')); ?>:</b>
-	<?php echo CHtml::encode($data->fecha_adopcion); ?>
+	<?php //echo CHtml::encode($data->fecha_adopcion); ?>
+	<?php echo CHtml::encode($this->formatearFecha($data->fecha_adopcion)); ?>
 	<br />
 
 

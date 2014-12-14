@@ -5,11 +5,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-array('label'=>'Lista Animales','url'=>array('index')),
-array('label'=>'Crear Animal','url'=>array('create')),
-array('label'=>'Editar Animal','url'=>array('update','id'=>$model->id_animal)),
-array('label'=>'Eliminar Animal','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id_animal),'confirm'=>'¿Está seguro que desea borrar este elemento?')),
-array('label'=>'Administrar Animales','url'=>array('admin')),
+array('label'=>'Lista Animales','url'=>array('index'), 'visible'=>Yii::app()->user->checkAccess('admin')),
+array('label'=>'Crear Animal','url'=>array('create'), 'visible'=>Yii::app()->user->checkAccess('admin')),
+array('label'=>'Editar Animal','url'=>array('update','id'=>$model->id_animal), 'visible'=>Yii::app()->user->checkAccess('admin')),
+array('label'=>'Eliminar Animal','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id_animal),'confirm'=>'¿Está seguro que desea borrar este elemento?'), 'visible'=>Yii::app()->user->checkAccess('admin')),
+array('label'=>'Administrar Animales','url'=>array('admin'), 'visible'=>Yii::app()->user->checkAccess('admin')),
 );
 ?>
 
