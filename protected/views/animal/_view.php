@@ -4,10 +4,6 @@
 	<?php echo CHtml::link(CHtml::encode($data->id_animal),array('view','id'=>$data->id_animal)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('numero_chip')); ?>:</b>
-	<?php echo CHtml::encode($data->numero_chip); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('nombre_animal')); ?>:</b>
 	<?php echo CHtml::encode($data->nombre_animal); ?>
 	<br />

@@ -41,9 +41,11 @@ class Persona extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_rut, iduser, nombre, apellido_p, apellido_m, fecha_nacimiento, genero, direccion, id_comuna, id_provincia, id_region, telefono', 'required'),
+			array('id_rut, nombre, apellido_p, apellido_m, fecha_nacimiento, genero, direccion, id_comuna, id_provincia, id_region, telefono', 'required'),
 			array('iduser, id_comuna, id_provincia, id_region, telefono', 'numerical', 'integerOnly'=>true),
-			array('id_rut', 'length', 'max'=>12),
+			array('id_rut', 'length', 'min'=>9,'message'=>'RUT inválido'),
+			array('id_rut', 'length', 'max'=>12,'message'=>'RUT inválido'),
+			array('id_rut', 'unique', 'message'=>'Ya existe un usuario con este RUT'),
 			array('id_rut', 'validateRut','message'=>'RUT inválido'),
 			array('nombre, apellido_p, apellido_m', 'length', 'max'=>100),
 			array('genero', 'length', 'max'=>11),
@@ -75,9 +77,9 @@ class Persona extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_rut' => 'RUT (sin puntos, con guión)',
+			'id_rut' => 'RUT',
 			'iduser' => 'Nombre de Usuario',
-			'nombre' => 'Nombre(s)',
+			'nombre' => 'Nombre',
 			'apellido_p' => 'Apellido Paterno',
 			'apellido_m' => 'Apellido Materno',
 			'fecha_nacimiento' => 'Fecha de Nacimiento',
@@ -138,22 +140,36 @@ class Persona extends CActiveRecord
 	}
 
 	/* Esta función retornará un array con todas las regiones para ser usadas en un DropDown */
-	public function getMenuRegiones(){
+	public function getMenuRegiones($key=null){
+		if($key!==null)
+			return Region::model()->findByPk($key)->nombre_region;
 		$regiones = Region::model()->findAll();
 		return CHtml::listData($regiones,'id_region','nombre_region');
 	}
 
 	/* Esta función retornará un array con todas las provincias para ser usadas en un DropDown */
-	public function getMenuProvincias(){
+	public function getMenuProvincias($key=null){
+		if($key!==null)
+			return Provincia::model()->findByPk($key)->nombre_provincia;
 		$provincias = Provincia::model()->findAll();
 		return CHtml::listData($provincias,'id_provincia','nombre_provincia');
 	}
 
 	/* Esta función retornará un array con todas las comunas para ser usadas en un DropDown */
-	public function getMenuComunas(){
+	public function getMenuComunas($key=null){
+		if($key!==null)
+			return Comuna::model()->findByPk($key)->nombre_comuna;
 		$comunas = Comuna::model()->findAll();
 		return CHtml::listData($comunas,'id_comuna','nombre_comuna');
 	}
+/*
+	public static function getRaza($key=null){
+
+		if($key!==null)
+			return Raza::model()->findByPk($key)->nombre_raza;
+		return CHtml::listData(Raza::model()->findAll(),'id_raza','nombre_raza');
+	}
+*/
 
 	public function validateRut($attribute, $params) {
         $data = explode('-', $this->id_rut);
@@ -175,5 +191,21 @@ class Persona extends CActiveRecord
         if ($verifyCode != $result)
           //$this->addError('rut', 'Rut inválido.');
             $this->addError($attribute,'Run inválido');
+
+
     }
+/*
+    public function getPersona(){
+    	$criteria = new CDbCriteria;
+    	$criteria = $criteria->addCondition('t.lista <> :item',array(':item'=>'Lista Negra'));
+		$personas = Persona::model()->findByAttributes($criteria);
+		return CHtml::listData($personas,'id_rut',$this->getFullName());
+	}*/
+
+	public function getFullName() {
+        $fullName = (! empty ( $this->nombre )) ? $this->nombre : '';
+        $fullName .= (! empty ( $this->apellido_p )) ? ((! empty ( $fullName )) ? " " . $this->apellido_p : $this->apellido_p) : '';
+        $fullName .= (! empty ( $this->apellido_m )) ? ((! empty ( $fullName )) ? " " . $this->apellido_m : $this->apellido_m) : '';
+        return $fullName;
+	}
 }

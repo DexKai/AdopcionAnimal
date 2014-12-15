@@ -31,18 +31,25 @@ return false;
 'filter'=>$model,
 'columns'=>array(
 		'id_rut',
-		'iduser',
+		//'iduser',
 		'nombre',
 		'apellido_p',
-		'apellido_m',
-		'fecha_nacimiento',
+		'telefono',
+		'direccion',
+		array(
+			'name'=>'id_comuna',
+			'header'=>'Comuna',
+			'filter' => Persona::getMenuComunas(),
+			'value'=> '$data->idComuna->nombre_comuna',
+		),
+		//'apellido_m',
+		//'fecha_nacimiento',
 		/*
 		'genero',
-		'direccion',
-		'id_comuna',
+		
 		'id_provincia',
 		'id_region',
-		'telefono',
+		
 		*/
 array(
 'class'=>'booster.widgets.TbButtonColumn',

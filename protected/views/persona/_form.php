@@ -7,7 +7,7 @@
 
 <?php echo $form->errorSummary($model); ?>
 
-	<?php echo $form->textFieldGroup($model,'id_rut',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>12)))); ?>
+	<?php echo $form->textFieldGroup($model,'id_rut',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>12, 'autocomplete'=>'off' ,'placeholder'=>'Ejemplo: 12345678-9')))); ?>
 
 	<?php echo $form->textFieldGroup($model,'iduser',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); ?>
 
@@ -21,7 +21,6 @@
             'format' => 'yyyy-mm-dd',
             'viewformat' => 'mm/dd/yyyy',
             'language' => 'es'),
-     
             'htmlOptions'=>array('class'=>'span5')),
             'prepend'=>'<i class="glyphicon glyphicon-calendar"></i>')); ?>
 

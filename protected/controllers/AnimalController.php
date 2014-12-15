@@ -76,6 +76,7 @@ public function actionCreate()
         $fileName = "{$rnd}-{$uploadedFile}";  // random number + file name
         $model->image = $fileName;
         $model->fecha_ingreso = new CDbExpression('NOW()');
+        $model->adoptado = 'No';
 
 	if($model->save())
 		$uploadedFile->saveAs(Yii::app()->basePath.'/../images/Animal/'.$fileName);  // image will uplode to rootDirectory/banner/

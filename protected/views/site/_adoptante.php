@@ -1,32 +1,38 @@
 
+<h1>Bienvenido Adoptante</h1>
 
-<?php echo '_adoptante'; ?>
+<p>Seleccione la opción que desea.</p>
+
+<?php $animal = CHtml::image(Yii::app()->request->baseUrl.'/images/cat.png','this is alt tag of image');?>
+<?php $noticia = CHtml::image(Yii::app()->request->baseUrl.'/images/news.png','this is alt tag of image');?>
+<?php $adoptante = CHtml::image(Yii::app()->request->baseUrl.'/images/user.png','this is alt tag of image');?>
 
 
-<div>
-<?php
+<?php $usuario = Yii::app()->db->createCommand()
+    ->select('persona_rut')
+    ->from('cruge_user')
+    ->where('iduser=:userid', array(':userid'=>Yii::app()->user->id))
+    ->queryRow(); ?>
 
-    $this->widget(
-    'booster.widgets.TbCarousel',
-    array(
-    'items' => array(
-    array(
-    'image' => 'images/Carousel/first-placeholder830x400.gif',
-    'label' => 'First Thumbnail label',
-    'caption' => 'First Caption.'
-    ),
-    array(
-    'image' => 'images/Carousel/second-placeholder830x400.gif',
-    'label' => 'Second Thumbnail label',
-    'caption' => 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'
-    ),
-    array(
-    'image' => 'images/Carousel/third-placeholder830x400.gif',
-    'label' => 'Third Thumbnail label',
-    'caption' => 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'
-    ),
-    ),
-    )
-    );
- ?>
- </div>
+
+
+<table style="width:100%">
+    <tr>
+        <td><?php echo CHtml::link($animal,array('animal/index',/*'id'=>1*/));?></td>
+        <td><?php echo CHtml::link($noticia,array('noticia/index',/*'id'=>1*/));?></td>
+        <td><?php echo CHtml::link($adoptante,array('persona/view','id'=>$usuario['persona_rut']));?></td>
+
+    </tr>
+    <tr>
+        <td><?php echo 'Tus Mascotas' ?></td>
+        <td><?php echo 'Ver Noticias' ?></td>
+        <td><?php echo 'Tu Perfil' ?></td>
+    </tr>
+
+
+</table>
+
+<?php //print_r($usuario); ?>
+<?php //echo Yii::app()->user->id; ?>
+
+<?php echo Yii::app()->user->ui->displayErrorConsole();?>

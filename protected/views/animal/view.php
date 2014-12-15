@@ -10,6 +10,7 @@ array('label'=>'Crear Animal','url'=>array('create'), 'visible'=>Yii::app()->use
 array('label'=>'Editar Animal','url'=>array('update','id'=>$model->id_animal), 'visible'=>Yii::app()->user->checkAccess('admin')),
 array('label'=>'Eliminar Animal','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id_animal),'confirm'=>'¿Está seguro que desea borrar este elemento?'), 'visible'=>Yii::app()->user->checkAccess('admin')),
 array('label'=>'Administrar Animales','url'=>array('admin'), 'visible'=>Yii::app()->user->checkAccess('admin')),
+array('label'=>'Asignar Dueño','url'=>array('adopcion/create','id'=>$model->id_animal), 'visible'=>Yii::app()->user->checkAccess('admin')),
 );
 ?>
 
@@ -19,14 +20,17 @@ array('label'=>'Administrar Animales','url'=>array('admin'), 'visible'=>Yii::app
 'data'=>$model,
 'attributes'=>array(
 		'id_animal',
-		'numero_chip',
 		'nombre_animal',
 		array(
 			'name'=>'id_especie',
 			'header'=>'Especie',
 			'value'=>$model->idEspecie->nombre_especie,
 		),
-		'id_raza',
+		array(
+			'name'=>'id_raza',
+			'header'=>'Raza',
+			'value' =>Raza::getRaza($model->id_raza),
+		),
 		array(
 			'name'=>'id_color',
 			'header'=>'Colores',

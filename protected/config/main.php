@@ -47,7 +47,7 @@ return array(
 				'availableAuthModes'=>array('username','email'),
 
                                 // url base para los links de activacion de cuenta de usuario
-				'baseUrl'=>'http://coco.com/',
+				'baseUrl'=>'http://saa.com/',
 
 				 // NO OLVIDES PONER EN FALSE TRAS INSTALAR
 				 'debug'=>true,
@@ -72,8 +72,8 @@ return array(
 				//		'afterLoginUrl'=>array('/site/welcome'),  ( !!! no olvidar el slash inicial / )
 				//		'afterLogoutUrl'=>array('/site/page','view'=>'about'),
 				//
-				'afterLoginUrl'=>null,
-				'afterLogoutUrl'=>null,
+				'afterLoginUrl'=>array('/site/index'),
+				'afterLogoutUrl'=>array('/site/index'),
 				'afterSessionExpiredUrl'=>null,
 
 				// manejo del layout con cruge.
@@ -175,6 +175,6 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'dex.pgsoto@gmail.com',
+		'adminEmail'=>'pgsoto@alumnos.ubiobio.cl',
 	),
 );

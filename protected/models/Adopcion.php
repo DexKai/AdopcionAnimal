@@ -105,4 +105,7 @@ class Adopcion extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+
+	
 }

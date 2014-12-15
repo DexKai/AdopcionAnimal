@@ -59,7 +59,7 @@ $this->render('view',array(
 * Creates a new model.
 * If creation is successful, the browser will be redirected to the 'view' page.
 */
-public function actionCreate()
+public function actionCreate($id)
 {
 $model=new Adopcion;
 
@@ -71,6 +71,7 @@ if(isset($_POST['Adopcion']))
 $model->attributes=$_POST['Adopcion'];
 $model->fecha_adopcion = new CDbExpression('NOW()');
 if($model->save())
+	// lanzar un flash aca
 $this->redirect(array('view','id'=>$model->id_adopcion));
 }
 

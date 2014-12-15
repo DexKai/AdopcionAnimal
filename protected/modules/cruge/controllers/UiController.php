@@ -106,6 +106,10 @@ class UiController extends Controller
                 'deny', // deny all users
                 'users' => array('*'),
             ),
+            array('allow',  // ajax comuna region provincia
+                'actions'=>array('provinciasPorRegion','comunasPorProvincia'),
+                'users'=>array('*'),
+),
         );
     }
 
@@ -278,30 +282,37 @@ class UiController extends Controller
     public function actionUserManagementCreate()
     {
         $model = Yii::app()->user->um->createBlankUser();
+        $persona= new Persona;
 
-        if (isset($_POST[CrugeUtil::config()->postNameMappings['CrugeStoredUser']])) {
+        if (isset($_POST[CrugeUtil::config()->postNameMappings['CrugeStoredUser']]) && isset($_POST['Persona'])) {
             $model->attributes = $_POST[CrugeUtil::config()->postNameMappings['CrugeStoredUser']];
-
+            $persona->attributes=$_POST['Persona'];
             $model->terminosYCondiciones = true;
-
             $model->scenario = 'manualcreate';
+            $valid=$persona->validate();
+            $valid=$model->validate() && $valid;
 
-            if ($model->validate()) {
+
+            if ($valid) {
 
                 $newPwd = trim($model->newPassword);
                 Yii::app()->user->um->changePassword($model, $newPwd);
 
                 Yii::app()->user->um->generateAuthenticationKey($model);
 
-                if (Yii::app()->user->um->save($model, 'insert')) {
+                if (Yii::app()->user->um->save($model, 'insert')&&$persona->save()) {
 
-                    $this->onNewUser($model, $newPwd);
-
-                    $this->redirect(array('usermanagementadmin'));
+                        $this->onNewUser($model, $newPwd);
+                        $persona->iduser=$model->iduser;// Tabla personal recive el iduser generado por cruge
+                        $persona->save();
+                        $model->persona_rut=$persona->id_rut; // tabla cruge_user recive el run del persona
+                        $model->save();
+                        $this->redirect(array('usermanagementadmin'));
                 }
             }
+
         }
-        $this->render("usermanagementcreate", array('model' => $model));
+        $this->render("usermanagementcreate", array('model' => $model,'persona'=>$persona));
     }
 
     public function actionRegistration($datakey = '')
@@ -1211,4 +1222,22 @@ class UiController extends Controller
             Yii::app()->end();
         }
     }
+
+    /* acción AJAX para llenar DropDown dependiente de provincias*/
+public function actionProvinciasPorRegion(){
+    $list = Provincia::model()->findAll('id_region=?',array($_POST["Persona"]['id_region']));
+    echo '<option value="">Seleccione...</option>';
+    foreach ($list as $data) {
+        echo "<option value=\"{$data->id_provincia}\"}>{$data->nombre_provincia}</option>";
+    }
+}
+
+/* acción AJAX para llenar DropDown dependiente de comunas*/
+public function actionComunasPorProvincia(){
+    $list = Comuna::model()->findAll('id_provincia=?',array($_POST["Persona"]['id_provincia']));
+    echo '<option value="">Seleccione...</option>';
+    foreach ($list as $data) {
+        echo "<option value=\"{$data->id_comuna}\"}>{$data->nombre_comuna}</option>";
+    }
+}
 }

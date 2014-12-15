@@ -79,8 +79,8 @@ array(
 		'items' => array(
 				array('label'=>'Acerca', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Contacto', 'url'=>array('/site/contact')),
-				array('label'=>'Noticia', 'url'=>array('/noticia/index')/*, 'visible'=>Yii::app()->user->checkAccess('admin')*/),
-				array('label'=>'Animales', 'url'=>array('/animal/index')/*, 'visible'=>Yii::app()->user->checkAccess('admin')*/),
+				//array('label'=>'Noticia', 'url'=>array('/noticia/index')/*, 'visible'=>Yii::app()->user->checkAccess('admin')*/),
+				//array('label'=>'Animales', 'url'=>array('/animal/index')/*, 'visible'=>Yii::app()->user->checkAccess('admin')*/),
 				//array('label'=>'Especie', 'url'=>array('/especie/index'), 'visible'=>Yii::app()->user->checkAccess('admin')),
 				//array('label'=>'Raza', 'url'=>array('/raza/index'), 'visible'=>Yii::app()->user->checkAccess('admin')),
 				//array('label'=>'Colores', 'url'=>array('/colores/index'), 'visible'=>Yii::app()->user->checkAccess('admin')),
@@ -88,7 +88,7 @@ array(
 				array('label'=>'Persona', 'url'=>array('/persona/index'), 'visible'=>Yii::app()->user->checkAccess('admin')),
 				array('label'=>'Administrar Usuarios'
 					, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
-					, 'visible'=>!Yii::app()->user->isGuest),
+					, 'visible'=>Yii::app()->user->checkAccess('admin')),
 				array('label'=>'Login'
 					, 'url'=>Yii::app()->user->ui->loginUrl
 					, 'visible'=>Yii::app()->user->isGuest),

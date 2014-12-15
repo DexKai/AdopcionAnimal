@@ -15,4 +15,4 @@ $this->breadcrumbs=array(
 
 	<h1>Actualizar Animal <?php echo $model->id_animal; ?></h1>
 
-<?php echo $this->renderPartial('_form',array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_update',array('model'=>$model)); ?>

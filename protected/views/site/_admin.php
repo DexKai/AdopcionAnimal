@@ -17,7 +17,7 @@
     </tr>
     <tr>
     	<td><?php echo 'Animales' ?></td>
-        <td><?php echo 'Adopción' ?></td>               
+        <td><?php echo 'Adopción' ?></td>
         <td><?php echo 'Noticias' ?></td>
         <td><?php echo 'Administrar Usuarios' ?></td>
     </tr>

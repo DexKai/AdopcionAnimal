@@ -1,4 +1,8 @@
 <?php /* @var $this Controller */ ?>
+
+
+
+
 <?php $this->beginContent('//layouts/main'); ?>
 <div class="span-21">
 	<div id="content">
@@ -8,7 +12,7 @@
 <div class="span-6 last">
 	<div id="sidebar">
 	<?php
-
+if (Yii::app()->user->checkAccess('admin')) {
 		if($this->menu){
 			$this->widget(
 					'booster.widgets.TbMenu',
@@ -28,6 +32,7 @@
 					)
 			);
 		}
+	}
 	?>
 
 	</div><!-- sidebar -->

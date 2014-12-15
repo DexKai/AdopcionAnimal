@@ -10,8 +10,11 @@ $this->pageTitle=Yii::app()->name;
     ->where('userid=:userid', array(':userid'=>Yii::app()->user->id))
     ->queryRow(); ?>
 
+<?php if ($rol['itemname']=='invitados') { $this->renderPartial('_welcome');}   ?>
+
 <?php if ($rol['itemname']=='Administrador') { $this->renderPartial('_admin');}   ?>
 
 <?php if ($rol['itemname']=='Adoptante') { $this->renderPartial('_adoptante');}   ?>
 
-<?php if ($rol['itemname']=='invitado') { $this->renderPartial('_adoptante');}   ?>
+
+

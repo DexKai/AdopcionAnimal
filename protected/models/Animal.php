@@ -5,7 +5,6 @@
  *
  * The followings are the available columns in table 'animal':
  * @property integer $id_animal
- * @property integer $numero_chip
  * @property string $nombre_animal
  * @property integer $id_especie
  * @property integer $id_raza
@@ -44,8 +43,8 @@ class Animal extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('numero_chip, nombre_animal, id_especie, id_raza, id_color, fecha_ingreso, image', 'required'),
-			array('numero_chip, id_especie, id_raza, id_color, edad_animal', 'numerical', 'integerOnly'=>true),
+			array('nombre_animal, id_especie, id_raza, id_color, fecha_ingreso, image', 'required'),
+			array('id_especie, id_raza, id_color, edad_animal', 'numerical', 'integerOnly'=>true),
 			array('peso', 'numerical'),
 			array('nombre_animal', 'length', 'max'=>20),
 			array('genero_animal, desparasitado, esterilizado', 'length', 'max'=>11),
@@ -54,7 +53,7 @@ class Animal extends CActiveRecord
 			array('vacunas, observaciones', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_animal, numero_chip, nombre_animal, id_especie, id_raza, id_color, genero_animal, edad_animal, peso, desparasitado, esterilizado, vacunas, observaciones, fecha_ingreso, adoptado', 'safe', 'on'=>'search'),
+			array('id_animal, nombre_animal, id_especie, id_raza, id_color, genero_animal, edad_animal, peso, desparasitado, esterilizado, vacunas, observaciones, fecha_ingreso, adoptado', 'safe', 'on'=>'search'),
 			array('image', 'file','types'=>'jpg, gif, png', 'allowEmpty'=>true, 'on'=>'update'),
 		);
 	}
@@ -80,7 +79,6 @@ class Animal extends CActiveRecord
 	{
 		return array(
 			'id_animal' => 'Código',
-			'numero_chip' => 'Número Chip',
 			'nombre_animal' => 'Nombre',
 			'id_especie' => 'Especie',
 			'id_raza' => 'Raza',
@@ -117,7 +115,6 @@ class Animal extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_animal',$this->id_animal);
-		$criteria->compare('numero_chip',$this->numero_chip);
 		$criteria->compare('nombre_animal',$this->nombre_animal,true);
 		$criteria->compare('id_especie',$this->id_especie);
 		$criteria->compare('id_raza',$this->id_raza);
@@ -166,4 +163,12 @@ class Animal extends CActiveRecord
 		$colores = Colores::model()->findAll();
 		return CHtml::listData($colores,'id_color','nombre_color');
 	}
+
+	public static function getRaza($key=null){
+
+		if($key!==null)
+			return CHtml::listData(Raza::model()->findByPk($key),'id_raza','nombre_raza');
+		return CHtml::listData(Raza::model()->findAll(),'id_raza','nombre_raza');
+	}
+	
 }

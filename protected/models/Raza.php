@@ -100,7 +100,11 @@ class Raza extends CActiveRecord
 		return parent::model($className);
 	}
 
-	public static function getRaza(){
-		return CHtml::listData(Especie::model()->findAll(),'id_raza','nombre_raza');
+	public static function getRaza($key=null){
+
+		if($key!==null)
+			return Raza::model()->findByPk($key)->nombre_raza;
+		return CHtml::listData(Raza::model()->findAll(),'id_raza','nombre_raza');
 	}
+
 }

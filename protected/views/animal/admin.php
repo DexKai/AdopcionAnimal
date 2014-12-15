@@ -39,24 +39,28 @@ return false;
 			'value'=>'$data->idEspecie->nombre_especie',
 			'filter' =>CHtml::listData(Especie::model()->findAll(),'id_especie','nombre_especie'),
 		),
-/*
+
 		array(
 			'name'=>'id_raza',
 			'header'=>'Raza',
-
+			'value' =>'Raza::getRaza($data->id_raza)',
 			'filter' =>CHtml::listData(Raza::model()->findAll(),'id_raza','nombre_raza'),
 		),
-*/
+
 		array(
 			'name'=>'genero_animal',
 			'header'=>'Género',
 			'value' =>'$data->genero_animal',
 			'filter' =>array('Macho'=>'Macho','Hembra'=>'Hembra'),
 			),
-		'adoptado',
+		array(
+			'name'=>'adoptado',
+			'header'=>'Adoptado',
+			'value' =>'$data->adoptado',
+			'filter' =>array('No'=>'No','Si'=>'Si'),
+			),
 		/*
 		'id_animal',
-		'numero_chip',
 		'edad_animal',
 		'id_color',
 		'peso',

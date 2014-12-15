@@ -7,7 +7,7 @@
 
 <?php echo $form->errorSummary($model); ?>
 
-	<?php echo $form->textFieldGroup($model,'id_animal',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); ?>
+	<?php //echo $form->textFieldGroup($model,'id_animal',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); ?>
 
 	<?php echo $form->textFieldGroup($model,'id_rut',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>12)))); ?>
 
