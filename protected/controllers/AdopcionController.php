@@ -62,17 +62,23 @@ $this->render('view',array(
 public function actionCreate($id)
 {
 $model=new Adopcion;
-
+$animal=new Animal;
 // Uncomment the following line if AJAX validation is needed
 // $this->performAjaxValidation($model);
 
 if(isset($_POST['Adopcion']))
 {
+
 $model->attributes=$_POST['Adopcion'];
+$model->id_animal=$id;
 $model->fecha_adopcion = new CDbExpression('NOW()');
-if($model->save())
-	// lanzar un flash aca
-$this->redirect(array('view','id'=>$model->id_adopcion));
+	if($model->save()){
+		// lanzar un flash aca
+		$animal=Animal::model()->findByPk($id);
+		$animal->adoptado='Si';
+		$animal->save();
+	}
+	$this->redirect(array('view','id'=>$model->id_adopcion));
 }
 
 $this->render('create',array(

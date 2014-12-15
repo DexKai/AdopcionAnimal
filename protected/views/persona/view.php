@@ -44,5 +44,6 @@ array('label'=>'Administrar Personas','url'=>array('admin')),
 			'value' =>Persona::getMenuRegiones($model->id_region),
 		),
 		'telefono',
+		'lista',
 ),
 )); ?>

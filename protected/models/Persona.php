@@ -16,6 +16,7 @@
  * @property integer $id_provincia
  * @property integer $id_region
  * @property integer $telefono
+ * @property string $lista
  *
  * The followings are the available model relations:
  * @property Adopcion[] $adopcions
@@ -41,7 +42,7 @@ class Persona extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_rut, nombre, apellido_p, apellido_m, fecha_nacimiento, genero, direccion, id_comuna, id_provincia, id_region, telefono', 'required'),
+			array('id_rut, nombre, apellido_p, apellido_m, fecha_nacimiento, genero, direccion, id_comuna, id_provincia, id_region, telefono, lista', 'required'),
 			array('iduser, id_comuna, id_provincia, id_region, telefono', 'numerical', 'integerOnly'=>true),
 			array('id_rut', 'length', 'min'=>9,'message'=>'RUT inválido'),
 			array('id_rut', 'length', 'max'=>12,'message'=>'RUT inválido'),
@@ -52,7 +53,7 @@ class Persona extends CActiveRecord
 			array('direccion', 'length', 'max'=>1024),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_rut, iduser, nombre, apellido_p, apellido_m, fecha_nacimiento, genero, direccion, id_comuna, id_provincia, id_region, telefono', 'safe', 'on'=>'search'),
+			array('id_rut, iduser, nombre, apellido_p, apellido_m, fecha_nacimiento, genero, direccion, id_comuna, id_provincia, id_region, telefono,lista', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -89,6 +90,7 @@ class Persona extends CActiveRecord
 			'id_provincia' => 'Provincia',
 			'id_region' => 'Región',
 			'telefono' => 'Teléfono',
+			'lista' => 'Lista',
 		);
 	}
 
@@ -122,6 +124,7 @@ class Persona extends CActiveRecord
 		$criteria->compare('id_provincia',$this->id_provincia);
 		$criteria->compare('id_region',$this->id_region);
 		$criteria->compare('telefono',$this->telefono);
+		$criteria->compare('lista',$this->lista,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -194,13 +197,13 @@ class Persona extends CActiveRecord
 
 
     }
-/*
+
     public function getPersona(){
     	$criteria = new CDbCriteria;
-    	$criteria = $criteria->addCondition('t.lista <> :item',array(':item'=>'Lista Negra'));
-		$personas = Persona::model()->findByAttributes($criteria);
-		return CHtml::listData($personas,'id_rut',$this->getFullName());
-	}*/
+    	$criteria = $criteria->addCondition('t.lista <> "Negra"');
+		$personas = Persona::model()->findAll($criteria);
+		return CHtml::listData($personas,'id_rut','fullname');
+	}
 
 	public function getFullName() {
         $fullName = (! empty ( $this->nombre )) ? $this->nombre : '';

@@ -5,11 +5,11 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id_animal')); ?>:</b>
-	<?php echo CHtml::encode($data->id_animal); ?>
+	<?php echo CHtml::encode($data->idAnimal->nombre_animal); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id_rut')); ?>:</b>
-	<?php echo CHtml::encode($data->id_rut); ?>
+	<?php echo CHtml::encode($data->idRut->getFullName()); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('fecha_adopcion')); ?>:</b>

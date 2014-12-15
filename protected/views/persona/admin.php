@@ -42,6 +42,12 @@ return false;
 			'filter' => Persona::getMenuComunas(),
 			'value'=> '$data->idComuna->nombre_comuna',
 		),
+		array(
+			'name'=>'lista',
+			'header'=>'Lista',
+			'value' =>'$data->lista',
+			'filter' =>array('Blanca'=>'Blanca','Gris'=>'Gris','Negra'=>'Negra'),
+			),
 		//'apellido_m',
 		//'fecha_nacimiento',
 		/*
@@ -49,7 +55,7 @@ return false;
 		
 		'id_provincia',
 		'id_region',
-		
+		'lista',
 		*/
 array(
 'class'=>'booster.widgets.TbButtonColumn',

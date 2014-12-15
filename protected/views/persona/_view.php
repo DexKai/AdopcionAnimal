@@ -17,6 +17,10 @@
 	<?php echo CHtml::encode($data->genero); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('lista')); ?>:</b>
+	<?php echo CHtml::encode($data->lista); ?>
+	<br />
+
 	<?php /*
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('nombre')); ?>:</b>
@@ -54,6 +58,8 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('telefono')); ?>:</b>
 	<?php echo CHtml::encode($data->telefono); ?>
 	<br />
+
+
 
 	*/ ?>
 

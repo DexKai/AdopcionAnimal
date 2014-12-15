@@ -19,8 +19,16 @@ array('label'=>'Administrar Adopciones','url'=>array('admin')),
 'data'=>$model,
 'attributes'=>array(
 		'id_adopcion',
-		'id_animal',
-		'id_rut',
+		array(
+			'name'=>'id_animal',
+			'header'=>'Mascota',
+			'value'=>$model->idAnimal->nombre_animal,
+		),
+		array(
+			'name'=>'id_rut',
+			'header'=>'Nombre',
+			'value'=> $model->idRut->getFullName(),
+		),
 		'fecha_adopcion',
 ),
 )); ?>

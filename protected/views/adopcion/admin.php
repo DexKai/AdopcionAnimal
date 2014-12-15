@@ -31,8 +31,18 @@ return false;
 'filter'=>$model,
 'columns'=>array(
 		'id_adopcion',
-		'id_animal',
-		'id_rut',
+		array(
+			'name'=>'id_animal',
+			'header'=>'Mascota',
+			'filter' => CHtml::listData(Animal::model()->findAll(),'id_animal','nombre_animal'),
+			'value'=> '$data->idAnimal->nombre_animal',
+		),
+		array(
+			'name'=>'id_rut',
+			'header'=>'Nombre',
+			'filter' => Persona::getPersona(),
+			'value'=> '$data->idRut->getFullName()',
+		),
 		'fecha_adopcion',
 array(
 'class'=>'booster.widgets.TbButtonColumn',

@@ -27,6 +27,8 @@
 
 		<?php echo $form->textFieldGroup($model,'telefono',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); ?>
 
+		<?php echo $form->dropDownListGroup($model,'lista', array('widgetOptions'=>array('data'=>array("Lista Blanca"=>"Lista Blanca","Lista Gris"=>"Lista Gris","Lista Negra"=>"Lista Negra",), 'htmlOptions'=>array('class'=>'input-large')))); ?>
+
 	<div class="form-actions">
 		<?php $this->widget('booster.widgets.TbButton', array(
 			'buttonType' => 'submit',
