@@ -20,7 +20,7 @@ return array(
 		'application.components.*',
 		'application.modules.cruge.components.*',
 		'application.modules.cruge.extensions.crugemailer.*',
-		'application.extensions.galleria.*'
+		
 	),
 
 	'modules'=>array(
@@ -100,6 +100,8 @@ return array(
 	// application components
 	'components'=>array(
 
+
+
 		'booster' => array(
                     'class' => 'ext.booster.components.Booster',
                     //'TbHtml'=>true,
@@ -122,7 +124,7 @@ return array(
 			),
 			'format' => array(
 				'datetimeFormat'=>"d M, Y h:m:s a",
-				'dateFormat'=>'d/m/Y',
+				'dateFormat'=>'d-m-Y',
 			),
 		// uncomment the following to enable URLs in path-format
 		/*

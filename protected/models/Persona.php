@@ -211,4 +211,6 @@ class Persona extends CActiveRecord
         $fullName .= (! empty ( $this->apellido_m )) ? ((! empty ( $fullName )) ? " " . $this->apellido_m : $this->apellido_m) : '';
         return $fullName;
 	}
+
+	
 }

@@ -68,7 +68,7 @@ return false;
 		'esterilizado',
 		'vacunas',
 		'observaciones',
-		'fecha_ingreso',
+		array('name'=>'fecha_ingreso','type'=>'date'),
 		'image',
 
 		*/

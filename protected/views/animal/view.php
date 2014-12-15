@@ -43,7 +43,7 @@ array('label'=>'Asignar Dueño','url'=>array('adopcion/create','id'=>$model->id_
 		'esterilizado',
 		'vacunas',
 		'observaciones',
-		'fecha_ingreso',
+		array('name'=>'fecha_ingreso','type'=>'date'),// cambio formato de fecha de MySQL por formato definido en config
 		array(
  			'label'=>'Foto',
  			'type'=>'raw',

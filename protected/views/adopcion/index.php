@@ -4,7 +4,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-array('label'=>'Crear Adopción','url'=>array('create')),
+//array('label'=>'Crear Adopción','url'=>array('create')),
 array('label'=>'Administrar Adopciones','url'=>array('admin')),
 );
 ?>

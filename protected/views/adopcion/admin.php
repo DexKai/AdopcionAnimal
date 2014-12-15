@@ -6,7 +6,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 array('label'=>'Lista Adopciones','url'=>array('index')),
-array('label'=>'Crear Adopción','url'=>array('create')),
+//array('label'=>'Crear Adopción','url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -43,7 +43,7 @@ return false;
 			'filter' => Persona::getPersona(),
 			'value'=> '$data->idRut->getFullName()',
 		),
-		'fecha_adopcion',
+		array('name'=>'fecha_adopcion','type'=>'date'),
 array(
 'class'=>'booster.widgets.TbButtonColumn',
 ),

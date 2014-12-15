@@ -31,7 +31,7 @@ array('allow',  // allow all users to perform 'index' and 'view' actions
 'users'=>array('*'),
 ),
 array('allow', // allow authenticated user to perform 'create' and 'update' actions
-'actions'=>array('create','update'),
+'actions'=>array('create','update','adoptados'),
 'users'=>array('@'),
 ),
 array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -150,8 +150,38 @@ throw new CHttpException(400,'Invalid request. Please do not repeat this request
 */
 public function actionIndex()
 {
-$dataProvider=new CActiveDataProvider('Animal');
+	if(Yii::app()->user->checkAccess('admin')){
+		$dataProvider=new CActiveDataProvider('Animal');
+	}
+	else{
+		$dataProvider=new CActiveDataProvider('Animal', array(
+    'criteria'=>array(
+        'condition'=>'adoptado="No"',
+        ),));
+	}
+
 $this->render('index',array(
+'dataProvider'=>$dataProvider,
+));
+}
+
+/* Ver animales adoptados*/
+public function actionAdoptados()
+{
+	 $usuario = Yii::app()->db->createCommand()
+    ->select('persona_rut')
+    ->from('cruge_user')
+    ->where('iduser=:userid', array(':userid'=>Yii::app()->user->id))
+    ->queryRow(); 
+
+
+	$dataProvider=new CActiveDataProvider('Adopcion', array(
+    'criteria'=>array(
+        'condition'=>'id_rut="'.$usuario['persona_rut'].'"',
+        ),));
+	
+
+$this->render('adoptados',array(
 'dataProvider'=>$dataProvider,
 ));
 }

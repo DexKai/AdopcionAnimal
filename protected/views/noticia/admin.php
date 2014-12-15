@@ -32,7 +32,7 @@ return false;
 'columns'=>array(
 		//'id_noticia',
 		'titulo',
-		'fecha_publicacion',
+		array('name'=>'fecha_publicacion','type'=>'date'),
 		'cuerpo',
 		//'image',
 array(

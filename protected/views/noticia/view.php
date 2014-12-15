@@ -20,7 +20,7 @@ array('label'=>'Administrar Noticias','url'=>array('admin')),
 'attributes'=>array(
 		//'id_noticia',
 		'titulo',
-		'fecha_publicacion',
+		array('name'=>'fecha_publicacion','type'=>'date'),
 		'cuerpo',
 		array(
  			'label'=>'Foto',

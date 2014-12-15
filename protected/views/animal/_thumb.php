@@ -15,6 +15,10 @@
                 <td><strong>Género:</strong></td>
                 <td><?php echo CHtml::encode($data->genero_animal); ?></td>
             </tr>
+            <tr>
+                <td><strong>Adoptado:</strong></td>
+                <td><?php echo CHtml::encode($data->adoptado); ?></td>
+            </tr>
         </table>
             <p><?php $this->widget(
 				'booster.widgets.TbButton',

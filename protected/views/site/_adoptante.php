@@ -18,7 +18,7 @@
 
 <table style="width:100%">
     <tr>
-        <td><?php echo CHtml::link($animal,array('animal/index',/*'id'=>1*/));?></td>
+        <td><?php echo CHtml::link($animal,array('animal/adoptados',/*'id'=>1*/));?></td>
         <td><?php echo CHtml::link($noticia,array('noticia/index',/*'id'=>1*/));?></td>
         <td><?php echo CHtml::link($adoptante,array('persona/view','id'=>$usuario['persona_rut']));?></td>
 
