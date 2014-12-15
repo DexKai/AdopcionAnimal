@@ -34,5 +34,11 @@ alter table Persona add constraint FK_vive_comuna foreign key (id_comuna)
 
 ALTER TABLE cruge_user ADD COLUMN persona_rut char(12);
 
-alter table cruge_user add constraint FK_persona_login foreign key (id_rut)
+alter table cruge_user add constraint FK_persona_login foreign key (persona_rut)
 references Persona (id_rut) on delete cascade on update cascade;
+
+
+INSERT INTO `cruge_user` (`iduser`, `regdate`, `actdate`, `logondate`, `username`, `email`, `password`, `authkey`, `state`, `totalsessioncounter`, `currentsessioncounter`, `persona_rut`) VALUES
+(1, NULL, NULL, 1418252105, 'admin', 'admin@tucorreo.com', 'admin', NULL, 1, 0, 0, NULL),
+(2, NULL, NULL, NULL, 'invitado', 'invitado', 'nopassword', NULL, 1, 0, 0, NULL),
+(3, 1418006447, NULL, NULL, 'pgsoto', 'pgsoto@alumnos.ubiobio.cl', 'decemu189', '68338a2e288b5ce9134d51cf5ba551a5', 1, 0, 0, NULL);
