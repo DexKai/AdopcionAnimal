@@ -38,14 +38,14 @@
 						</td>
 						<td>
 							<?php
-							if (!Yii::app()->user->isGuest){
+							/*if (!Yii::app()->user->isGuest){
 								echo '<table class="tbl_login"><tr><td>'.Yii::app()->user->getState("nombre").'</td></tr>
 											 <tr><td>'.Yii::app()->user->getState("cargo").'</td></tr></table>';
 							}
 							else{
 								echo '<table><tr><td>&nbsp;</td></tr>
 								<tr><td>&nbsp;</td></tr></table>';
-							}
+							}*/
 							?>
 						</td>
 					</tr>
@@ -69,9 +69,9 @@ array(
 'type' => null, // null or 'inverse'
 'brand' => 'Inicio',
 'brandUrl' => array('/site/index'),
-'collapse' => true, // requires bootstrap-responsive.css
-'fixed' => true,
-'fluid' => true,
+'collapse'=> true, // requires bootstrap-responsive.css
+'fixed' => false,
+//'fluid' => true,
 'items' => array(
 array(
 'class' => 'booster.widgets.TbMenu',

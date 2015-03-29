@@ -19,7 +19,7 @@ array('label'=>'Asignar Dueño','url'=>array('adopcion/create','id'=>$model->id_
 <?php $this->widget('booster.widgets.TbDetailView',array(
 'data'=>$model,
 'attributes'=>array(
-		'id_animal',
+		//'id_animal',
 		'nombre_animal',
 		array(
 			'name'=>'id_especie',

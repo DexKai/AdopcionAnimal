@@ -212,5 +212,4 @@ class Persona extends CActiveRecord
         return $fullName;
 	}
 
-	
 }

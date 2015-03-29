@@ -21,23 +21,27 @@
 		echo Yii::app()->user->ui->superAdminNote();
 ?>
 <div class="container">
-	<div class="span-19">
+	<div class="span-21">
 		<div id="content">
 			<?php echo $content; ?>
 		</div><!-- content -->
 	</div>
 	<?php if(Yii::app()->user->checkAccess('admin')) { ?>	
-	<div class="span-5 last">
+	<div class="span-6">
 		<div id="sidebar">
 		<?php
-			$this->beginWidget('zii.widgets.CPortlet', array(
-				'title'=>ucfirst(CrugeTranslator::t("administracion de usuarios")),
-			));
+			$this->widget('booster.widgets.TbMenu',
+					array(
+							'type' => 'pills',
+							'stacked' => true,
+							'items' => array(array('label'=>'Administrador de Usuarios','icon'=>'wrench', 'url'=>'#', 'active'=>true),),
+					)
+			);
 			$this->widget('zii.widgets.CMenu', array(
 				'items'=>Yii::app()->user->ui->adminItems,
 				'htmlOptions'=>array('class'=>'operations'),
 			));
-			$this->endWidget();
+			//$this->endWidget();
 		?>
 		</div><!-- sidebar -->
 	</div>

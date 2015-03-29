@@ -25,7 +25,7 @@ array('label'=>'Administrar Personas','url'=>array('admin')),
 			'header'=>'Nombre Completo',
 			'value'=>$model->getFullName('id_rut'),
 		),
-		'fecha_nacimiento',
+		array('name'=>'fecha_nacimiento','type'=>'date'),
 		'genero',
 		'direccion',
 		array(

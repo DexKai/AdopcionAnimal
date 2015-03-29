@@ -44,8 +44,9 @@ class Animal extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('nombre_animal, id_especie, id_raza, id_color, fecha_ingreso, image', 'required'),
-			array('id_especie, id_raza, id_color, edad_animal', 'numerical', 'integerOnly'=>true),
-			array('peso', 'numerical'),
+			array('id_especie, id_raza, id_color', 'numerical', 'integerOnly'=>true),
+			array('edad_animal', 'numerical','min'=>1,'max'=>180),
+			array('peso', 'numerical','min'=>1,'max'=>90),
 			array('nombre_animal', 'length', 'max'=>20),
 			array('genero_animal, desparasitado, esterilizado', 'length', 'max'=>11),
 			array('image', 'length', 'max'=>1024),

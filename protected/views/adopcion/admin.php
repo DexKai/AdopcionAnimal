@@ -30,7 +30,7 @@ return false;
 'dataProvider'=>$model->search(),
 'filter'=>$model,
 'columns'=>array(
-		'id_adopcion',
+		//'id_adopcion',
 		array(
 			'name'=>'id_animal',
 			'header'=>'Mascota',
@@ -43,7 +43,7 @@ return false;
 			'filter' => Persona::getPersona(),
 			'value'=> '$data->idRut->getFullName()',
 		),
-		array('name'=>'fecha_adopcion','type'=>'date'),
+		//array('name'=>'fecha_adopcion','type'=>'date'),
 array(
 'class'=>'booster.widgets.TbButtonColumn',
 ),

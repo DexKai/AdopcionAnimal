@@ -13,12 +13,12 @@ array('label'=>'Administrar Adopciones','url'=>array('admin')),
 );
 ?>
 
-<h1>Ver Adopción #<?php echo $model->id_adopcion; ?></h1>
+<h1>Ver Adopción <?php //echo $model->id_adopcion; ?></h1>
 
 <?php $this->widget('booster.widgets.TbDetailView',array(
 'data'=>$model,
 'attributes'=>array(
-		'id_adopcion',
+		//'id_adopcion',
 		array(
 			'name'=>'id_animal',
 			'header'=>'Mascota',

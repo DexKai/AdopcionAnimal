@@ -19,7 +19,7 @@ if (Yii::app()->user->checkAccess('admin')) {
 					array(
 							'type' => 'pills',
 							'stacked' => true,
-							'items' => array(array('label'=>'Operaciones:','icon'=>'wrench', 'url'=>'#', 'active'=>true),),
+							'items' => array(array('label'=>'Operaciones','icon'=>'wrench', 'url'=>'#', 'active'=>true),),
 					)
 			);
 			$this->widget(

@@ -15,29 +15,29 @@
 )); ?>
 
 <div class="row form-group">
-    <div class="row">
-    	<?php echo $form->textFieldGroup($persona,'id_rut',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>12)))); ?>
-        <?php //echo $form->labelEx($persona,'nombre'); ?>
-        <?php //echo $form->textField($persona,'nombre',array('maxlength'=>128,'autocomplete'=>"off",'placeholder'=>"Ej: Nancy")); ?>
-        <?php //echo $form->error($persona,'nombre'); ?>
-        <?php echo $form->textFieldGroup($persona,'nombre',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>100)))); ?>
+    <div class="col">
+	<?php echo $form->textFieldGroup($persona,'id_rut',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>12, 'autocomplete'=>'off' ,'placeholder'=>'Ejemplo: 12345678-9')))); ?>
 
-	<?php echo $form->textFieldGroup($persona,'apellido_p',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>100)))); ?>
+	<?php //echo $form->textFieldGroup($persona,'iduser',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); ?>
 
-	<?php echo $form->textFieldGroup($persona,'apellido_m',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>100)))); ?>
+	<?php echo $form->textFieldGroup($persona,'nombre',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>100, 'autocomplete'=>'off' ,'placeholder'=>'Ejemplo: Pedro')))); ?>
+
+	<?php echo $form->textFieldGroup($persona,'apellido_p',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>100, 'autocomplete'=>'off' ,'placeholder'=>'Ejemplo: Perez')))); ?>
+
+	<?php echo $form->textFieldGroup($persona,'apellido_m',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>100, 'autocomplete'=>'off' ,'placeholder'=>'Ejemplo: Pereira')))); ?>
 
     <?php echo $form->datePickerGroup($persona,'fecha_nacimiento',array('widgetOptions'=>array('options'=>array(
             'format' => 'yyyy-mm-dd',
             'viewformat' => 'mm/dd/yyyy',
             'language' => 'es'),
-            'htmlOptions'=>array('class'=>'span5')),
+            'htmlOptions'=>array('class'=>'span5', 'autocomplete'=>'off' ,'placeholder'=>'Ejemplo: 1980-12-25')),
             'prepend'=>'<i class="glyphicon glyphicon-calendar"></i>')); ?>
 
 
 
 	<?php echo $form->dropDownListGroup($persona,'genero', array('widgetOptions'=>array('data'=>array("Sin definir"=>"Sin definir","Masculino"=>"Masculino","Femenino"=>"Femenino",), 'htmlOptions'=>array('class'=>'input-large')))); ?>
 
-	<?php echo $form->textFieldGroup($persona,'direccion',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>1024)))); ?>
+	<?php echo $form->textFieldGroup($persona,'direccion',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>1024, 'autocomplete'=>'off' ,'placeholder'=>'Ejemplo: Calle/Avenida/Pasaje, Número, Departamento, Bloque')))); ?>
 
 	<?php echo $form->dropDownListGroup($persona,
 										'id_region',
@@ -75,7 +75,10 @@
 												)))
 										); ?>
 
-	<?php echo $form->textFieldGroup($persona,'telefono',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); ?>
+	<?php echo $form->textFieldGroup($persona,'telefono',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5', 'autocomplete'=>'off' ,'placeholder'=>'Ejemplo: 2746525')))); ?>
+
+	<?php echo $form->dropDownListGroup($persona,'lista', array('widgetOptions'=>array('data'=>array("Blanca"=>"Blanca","Gris"=>"Gris","Negra"=>"Negra",), 'htmlOptions'=>array('class'=>'input-large')))); ?>
+
     </div>
 	<div class="col">
 		<?php echo $form->labelEx($model,'username'); ?>

@@ -49,7 +49,7 @@ return false;
 			'filter' =>array('Blanca'=>'Blanca','Gris'=>'Gris','Negra'=>'Negra'),
 			),
 		//'apellido_m',
-		//'fecha_nacimiento',
+		//array('name'=>'fecha_nacimiento','type'=>'date'),
 		/*
 		'genero',
 		
