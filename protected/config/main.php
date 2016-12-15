@@ -20,7 +20,7 @@ return array(
 		'application.components.*',
 		'application.modules.cruge.components.*',
 		'application.modules.cruge.extensions.crugemailer.*',
-		
+
 	),
 
 	'modules'=>array(
@@ -88,10 +88,10 @@ return array(
 				//
 				'generalUserManagementLayout'=>'ui',
 
-				// permite indicar un array con los nombres de campos personalizados, 
-				// incluyendo username y/o email para personalizar la respuesta de una consulta a: 
-				// $usuario->getUserDescription(); 
-				'userDescriptionFieldsArray'=>array('email'), 
+				// permite indicar un array con los nombres de campos personalizados,
+				// incluyendo username y/o email para personalizar la respuesta de una consulta a:
+				// $usuario->getUserDescription();
+				'userDescriptionFieldsArray'=>array('email'),
 
 			),
 
@@ -143,15 +143,15 @@ return array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),
 		// uncomment the following to use a MySQL database
-		
+
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=adopcion4',
 			'emulatePrepare' => true,
-			'username' => 'IECI04',
-			'password' => 'dbyjjp4',
+			'username' => 'root',
+			'password' => '',
 			'charset' => 'utf8',
 		),
-		
+
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
